@@ -54,11 +54,26 @@ void imprimeNaTelaReceita(void *dado){
 }
 
 void imprimeEmArquivoReceita(void *dado, char *path){
-  char *arquivo;
+  char arquivo[100];
+  int existe = 0;
+  char c;
   sprintf(arquivo, "%s/receita.txt", path);
   FILE *arq = NULL;
-  arq = fopen(arquivo, "w");
-
+  FILE *teste = NULL;
+  if(teste = fopen(arquivo, "r")){
+    fclose(teste);
+    existe = 1;
+  }
+  if(existe){
+   arq = fopen(arquivo, "r+");
+   while(fscanf(arq, "%c", &c) == 1){
+	existe++;
+   }
+   fprintf(arq, "\n");
+  }
+  else 
+   arq = fopen(arquivo, "w");
+  
   tReceita *r = (tReceita*) dado;
   fprintf(arq, "RECEITUARIO\n");
   fprintf(arq, "NOME: %s\n\n", r->nomePaciente);
