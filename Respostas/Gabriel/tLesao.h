@@ -1,5 +1,6 @@
 #ifndef _TLESAO_H_
 #define _TLESAO_H_
+#include <stdio.h>
 
 typedef struct{
   char *rotulo[6];
@@ -71,6 +72,6 @@ void imprimeNaTelaLesao(tLesao *lesao);
  * específico de acordo com a descrição do trabalho.
  * Essa função também recebe o path da pasta onde o arquivo deve ser editado.
  */
-void imprimeEmArquivoLesao(tLesao *lesao, char *path);
+void imprimeEmArquivoLesao(tLesao *lesao, FILE * arq);
 
 #endif

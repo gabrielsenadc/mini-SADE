@@ -21,6 +21,7 @@ tReceita *criaReceita(char *nomePaciente, eTipoUso tipoUso, char *nomeMedicament
 char *tipoMedicamento, char *instrucoes, int qntd,
 char *nomeMedico, char *CRM, char *dataStr){
   tReceita *receita = malloc(sizeof(tReceita));
+
   strcpy(receita->nomePaciente, nomePaciente);
   receita->tipoUso = tipoUso;
   strcpy(receita->nomeMedicamento, nomeMedicamento);
@@ -30,12 +31,15 @@ char *nomeMedico, char *CRM, char *dataStr){
   strcpy(receita->nomeMedico, nomeMedico);
   strcpy(receita->CRM, CRM);
   strcpy(receita->dataStr, dataStr);
+
   return receita;
 }
 
 void desalocaReceita(void *dado){
-  tReceita *r = (tReceita*) dado;
-  free(r);
+  if(dado != NULL){
+    tReceita *r = (tReceita*) dado;
+    free(r);
+  }
 }
 
 void imprimeNaTelaReceita(void *dado){
@@ -55,26 +59,11 @@ void imprimeNaTelaReceita(void *dado){
 
 void imprimeEmArquivoReceita(void *dado, char *path){
   char arquivo[100];
-  int existe = 0;
-  char c;
   sprintf(arquivo, "%s/receita.txt", path);
   FILE *arq = NULL;
-  FILE *teste = NULL;
-  if(teste = fopen(arquivo, "r")){
-    fclose(teste);
-    existe = 1;
-  }
-  if(existe){
-   arq = fopen(arquivo, "r+");
-   while(fscanf(arq, "%c", &c) == 1){
-	existe++;
-   }
-   fprintf(arq, "\n");
-  }
-  else 
-   arq = fopen(arquivo, "w");
-  
+  arq = fopen(arquivo, "a");
   tReceita *r = (tReceita*) dado;
+
   fprintf(arq, "RECEITUARIO\n");
   fprintf(arq, "NOME: %s\n\n", r->nomePaciente);
   if(r->tipoUso == ORAL)
@@ -85,6 +74,7 @@ void imprimeEmArquivoReceita(void *dado, char *path){
   fprintf(arq, "%d %s\n\n", r->qtd, r->tipoMedicamento);
   fprintf(arq, "%s\n\n", r->instrucoes);
   fprintf(arq, "%s (%s)\n", r->nomeMedico, r->CRM);
-  fprintf(arq, "%s\n", r->dataStr);
+  fprintf(arq, "%s\n\n", r->dataStr);
+  
   fclose(arq);
 }

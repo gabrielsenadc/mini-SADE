@@ -45,3 +45,23 @@ void imprimeNaTelaBiopsia(void *dado){
   printf("\n%s (%s)\n", b->nomeMedico, b->CRM);
   printf("%s\n", b->data);
 }
+
+void imprimeEmArquivoBiopsia(void *dado, char *path){
+  char arquivo[100];
+  sprintf(arquivo, "%s/biopsia.txt", path);
+  FILE *arq = NULL;
+  arq = fopen(arquivo, "a");
+  tBiopsia *b = (tBiopsia*) dado;
+
+  fprintf(arq, "PACIENTE: %s\n", b->nomePaciente);
+  fprintf(arq, "CPF: %s\n\n", b->CPF);
+  fprintf(arq, "SOLICITACAO DE BIOPSIA PARA AS LESOES:\n");
+  for(int i = 0; i < obtemNumeroLesoes(b->lista); i++){
+    if(obtemSeLesaoParaCirurgia(b->lista->lesao[i]))
+      imprimeEmArquivoLesao(b->lista->lesao[i], arq);
+  }
+  fprintf(arq, "\n%s (%s)\n", b->nomeMedico, b->CRM);
+  fprintf(arq, "%s\n\n", b->data);
+
+  fclose(arq);
+}
