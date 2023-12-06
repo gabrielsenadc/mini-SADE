@@ -57,9 +57,8 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
 
     printf("NIVEL DE ACESSO: ");
     scanf("%[^\n]%*c", acesso);
-    pessoa->acesso = acesso[0];
+    pessoa->cargo = acesso[0];
 
-    pessoa->cargo = 'S';
   }
   if(tipo == 2){
     char usuario[20];
@@ -100,6 +99,18 @@ void desalocaLista(tListaPessoas *l){
       free(l->pessoa);
     free(l);
   }
+}
+
+int retornaQtdPesssoas(tListaPessoas *lista){
+  return lista->qtd;
+}
+
+int igualUsuario(char *usuario, tPessoa *pessoa){
+  return !strcmp(usuario, pessoa->usuario);
+}
+
+int igualSenha(char *senha, tPessoa *pessoa){
+  return !strcmp(senha, pessoa->senha);
 }
 
 int igualNome(char *nome, tPessoa *pessoa){
@@ -147,10 +158,6 @@ char* retornaSenha(tPessoa *pessoa){
 char* retornaCRM(tPessoa *pessoa){
   char *CRM = pessoa->CRM;
   return CRM;
-}
-
-char retornaAcesso(tPessoa *pessoa){
-  return pessoa->acesso;
 }
 
 int retornaDia(tPessoa *pessoa){

@@ -15,7 +15,6 @@ typedef struct {
 
   char CRM[12];
 
-  char acesso;
 } tPessoa;
 
 typedef struct {
@@ -31,9 +30,15 @@ int igualNome(char *nome, tPessoa *pessoa);
 
 int igualCPF(char *CPF, tPessoa *pessoa);
 
+int igualUsuario(char *usuario, tPessoa *pessoa);
+
+int igualSenha(char *senha, tPessoa *pessoa);
+
 void desalocaPessoa(tPessoa *p);
 
 void desalocaLista(tListaPessoas *l);
+
+int retornaQtdPesssoas(tListaPessoas *lista);
 
 char* retornaNome(tPessoa *pessoa);
 
@@ -50,8 +55,6 @@ char* retornaUsuario(tPessoa *pessoa);
 char* retornaSenha(tPessoa *pessoa);
 
 char* retornaCRM(tPessoa *pessoa);
-
-char retornaAcesso(tPessoa *pessoa);
 
 int retornaDia(tPessoa *pessoa);
 int retornaMes(tPessoa *pessoa);

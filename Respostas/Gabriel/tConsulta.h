@@ -126,9 +126,9 @@ tConsulta* RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeM
     int dia = retornaDia(pessoa), mes = retornaMes(pessoa), ano = retornaAno(pessoa);
     printf("CPF DO PACIENTE: %s\n", CPF);
     printf("- NOME: %s\n", nomePaciente);
-    printf("- DATA DE NASCIMENTO: %d/%d/%d\n", dia, mes, ano);
+    printf("- DATA DE NASCIMENTO: %02d/%02d/%04d\n", dia, mes, ano);
 
-    char data[11], pele[3];
+    char data[11], pele[4];
     int diabetes, fumante, alergia, cancer;
     printf("DATA DA CONSULTA: ");
     scanf("%s%*c", data);
@@ -151,7 +151,6 @@ tConsulta* RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeM
     int acao;
     tListaLesao *listaLesao = criaListaLesao();
     strcpy(nomePaciente, retornaNome(pessoa));
-    strcpy(nomePaciente, retornaCPF(pessoa));
     while(1){
         printf("ESCOLHA UMA OPCAO:\n(1) CADASTRAR LESAO\n(2) GERAR RECEITA MEDICA\n(3) SOLICITACAO DE BIOPSIA\n(4) ENCAMINHAMENTO\n(5) ENCERRAR CONSULTA\n");
         scanf("%d%*c", &acao);
