@@ -1,7 +1,6 @@
 #ifndef _TBIOPSIA_H_
 #define _TBIOPSIA_H_
 
-#define NOME_ARQUIVO_RECEITA "biopsia.txt"
 #include "tLesao.h"
 
 

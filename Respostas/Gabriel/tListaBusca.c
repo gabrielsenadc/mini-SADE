@@ -23,11 +23,6 @@ void adicionaPessoaListaBusca(tListaBusca *lista, tPessoa *pessoa){
     lista->pessoa[lista->qtd - 1] = pessoa;
 }
 
-void desalocaPessoa(tPessoa *p){
-    if(p != NULL)
-        free(p);
-}
-
 void desalocaListaBusca(void *dado){
     if(dado != NULL){
         tListaBusca *lista = (tListaBusca*) dado;
@@ -43,7 +38,7 @@ void desalocaListaBusca(void *dado){
 void imprimeNaTelaListaBusca(void *dado){
     tListaBusca *lista = (tListaBusca*) dado;
     for(int i = 0; i < lista->qtd; i++){
-        pritnf("%d - %s (%s)\n", i, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
+        printf("%d - %s (%s)\n", i, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
     }
 }
 
@@ -55,7 +50,7 @@ void imprimeEmArquivoListaBusca(void *dado, char *path){
     tListaBusca *lista = (tListaBusca*) dado;
 
     for(int i = 0; i < lista->qtd; i++){
-        fpritnf(arq, "%d - %s (%s)\n", i, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
+        fprintf(arq, "%d - %s (%s)\n", i, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
     }
 
     fclose(arq);

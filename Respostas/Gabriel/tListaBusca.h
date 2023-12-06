@@ -3,11 +3,7 @@
 
 typedef struct tListaBusca tListaBusca;
 
-typedef struct{
-    char nome[100];
-    char CPF[15];
-    char cargo;
-} tPessoa;
+#include "tPessoa.h"
 
 /**
  * funcao que cria um a lista de busca como NULL e qtd como 0

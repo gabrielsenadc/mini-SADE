@@ -28,7 +28,6 @@ tBiopsia *criaBiopsia(char *nomePaciente, char *CPF, tListaLesao *lista, char *n
 void desalocaBiopsia(void *dado){
   if(dado != NULL){
     tBiopsia *b = (tBiopsia*) dado;
-    desalocaListaLesao(b->lista);
     free(b);
   }
 }

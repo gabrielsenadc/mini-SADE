@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 typedef struct{
-  char *rotulo[5];
-  char *diagnostico[24];
-  char *regiao[15];
+  char rotulo[5];
+  char diagnostico[24];
+  char regiao[15];
   int tamanho;
   int cirurgia;
   int crioterapia;

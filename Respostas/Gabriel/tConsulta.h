@@ -9,6 +9,8 @@
 #include "tLesao.h"
 #include "tFila.h"
 #include "tReceita.h"
+#include "tBiopsia.h"
+#include "tEncaminhamento.h"
 
 typedef struct {
 
@@ -84,8 +86,31 @@ void cadastraReceita(tFila *fila, char *nomePaciente, char *nomeMedico, char *CR
     insereDocumentoFila(fila, receita, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
 }
 
-void solicitaBiopsia(){
+void solicitaBiopsia(tFila *fila, tListaLesao *lista, char *nomePaciente, char *CPF, char *nomeMedico, char *CRM, char *data){
+    if(obtemNumeroLesoesParaCirurgia(lista)){
+        tBiopsia *b = criaBiopsia(nomePaciente, CPF, lista, nomeMedico, CRM, data);
+        insereDocumentoFila(fila, b, imprimeNaTelaBiopsia, imprimeEmArquivoBiopsia, desalocaBiopsia);
+        printf("SOLICITACAO DE BIOPSIA ENVIADA PARA FILA DE IMPRESSAO.");
+    }
+    else{
+        printf("NAO E POSSIVEL SOLICITAR BIOPSIA SEM LESAO CIRURGICA.");
+    }
+
+}
+
+void encaminhamento(tFila *fila, char *nomePaciente, char *CPF, char *nomeMedico, char *CRM, char *data){
+    printf("ENCAMINHAMENTO:\n");
     
+    char especialidade[50];
+    printf("ESPECIALIDADE ENCAMINHADA: ");
+    scanf("%[^\n]%*c", especialidade);
+
+    char motivo[50];
+    printf("MOTIVO: ");
+    scanf("%[^\n]%*c", motivo);
+
+    tEncaminhamento *e = criaEncaminhamento(nomePaciente, CPF, especialidade, motivo, nomeMedico, CRM, data);
+    insereDocumentoFila(fila, e, imprimeNaTelaEncaminhamento, imprimeEmArquivoEncaminhamento, desalocaEncaminhamento);
 }
 
 tConsulta* RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico, char *CRM){
@@ -109,22 +134,24 @@ tConsulta* RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeM
     scanf("%s%*c", data);
 
     printf("POSSUI DIABETES: ");
-    scanf("%d%*c", diabetes);
+    scanf("%d%*c", &diabetes);
 
     printf("FUMANTE:  ");
-    scanf("%d%*c", fumante);
+    scanf("%d%*c", &fumante);
 
     printf("ALEGIA A MEDICAMENTO: ");
-    scanf("%d%*c", alergia);
+    scanf("%d%*c", &alergia);
 
     printf("HISTORICO DE CANCER:");
-    scanf("%d%*c", cancer);
+    scanf("%d%*c", &cancer);
 
     printf("TIPO DE PELE: ");
     scanf("%s%*c", pele);
 
     int acao;
     tListaLesao *listaLesao = criaListaLesao();
+    strcpy(nomePaciente, retornaNome(pessoa));
+    strcpy(nomePaciente, retornaCPF(pessoa));
     while(1){
         printf("ESCOLHA UMA OPCAO:\n(1) CADASTRAR LESAO\n(2) GERAR RECEITA MEDICA\n(3) SOLICITACAO DE BIOPSIA\n(4) ENCAMINHAMENTO\n(5) ENCERRAR CONSULTA\n");
         scanf("%d%*c", &acao);
@@ -134,14 +161,21 @@ tConsulta* RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeM
             cadastraLesao(listaLesao);
         }
         if(acao == 2){
-            char nomePaciente[100];
-            strcpy(nomePaciente, retornaNome(pessoa));
             cadastraReceita(fila, nomePaciente, nomeMedico, CRM, data);
         }
         if(acao == 3){
-
+            solicitaBiopsia(fila, listaLesao, nomePaciente, CPF, nomeMedico, CRM, data);
         }
+        if(acao == 4){
+            encaminhamento(fila, nomePaciente, CPF, nomeMedico, CRM, data);
+        }
+        if(acao == 5){
+            break;
+        }
+        printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+        scanf("%*c");
     }
+    return NULL;
 }
 
 
