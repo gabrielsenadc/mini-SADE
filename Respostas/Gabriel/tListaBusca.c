@@ -9,7 +9,7 @@ struct tListaBusca{
 };
 
 tListaBusca *criaListaBusca(){
-    tListaBusca *lista = malloc(sizeof(tListaBusca*));
+    tListaBusca *lista = malloc(sizeof(tListaBusca));
 
     lista->pessoa = NULL;
     lista->qtd = 0;
@@ -26,9 +26,6 @@ void adicionaPessoaListaBusca(tListaBusca *lista, tPessoa *pessoa){
 void desalocaListaBusca(void *dado){
     if(dado != NULL){
         tListaBusca *lista = (tListaBusca*) dado;
-        for(int i = 0; i < lista->qtd; i++){
-            desalocaPessoa(lista->pessoa[i]);
-        }
         if(lista->pessoa != NULL)
             free(lista->pessoa);
         free(lista);
@@ -38,7 +35,7 @@ void desalocaListaBusca(void *dado){
 void imprimeNaTelaListaBusca(void *dado){
     tListaBusca *lista = (tListaBusca*) dado;
     for(int i = 0; i < lista->qtd; i++){
-        printf("%d - %s (%s)\n", i, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
+        printf("%d - %s (%s)\n", i + 1, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
     }
 }
 
@@ -50,7 +47,7 @@ void imprimeEmArquivoListaBusca(void *dado, char *path){
     tListaBusca *lista = (tListaBusca*) dado;
 
     for(int i = 0; i < lista->qtd; i++){
-        fprintf(arq, "%d - %s (%s)\n", i, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
+        fprintf(arq, "%d - %s (%s)\n", i + 1, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
     }
 
     fclose(arq);

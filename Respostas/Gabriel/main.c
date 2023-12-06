@@ -28,13 +28,13 @@ tPessoa* login(tListaPessoas *lista){
                     return lista->pessoa[i];
                 }
                 else{
-                    printf("SENHA INCORRETA");
+                    printf("SENHA INCORRETA\n");
                     acesso = 'E';
                 }
             }
         }
         if(!existe){
-            printf("USUARIO INEXISTENTE");
+            printf("USUARIO INEXISTENTE\n");
             acesso = 'E';
         }
     }
@@ -43,7 +43,7 @@ tPessoa* login(tListaPessoas *lista){
 void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
     char nome[100];
     printf("NOME DO PACIENTE: ");
-    scanf("%[\n]%*c", nome);
+    scanf("%[^\n]%*c", nome);
     tListaBusca *lista = criaListaBusca();
     for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
         if(igualNome(nome, listaPessoas->pessoa[i])){
@@ -53,14 +53,21 @@ void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
     printf("PACIENTES ENCONTRADOS:\n");
     imprimeNaTelaListaBusca(lista);
 
-    printf("SELECIONE UMA OPÇÃO:\n(1) ENVIAR LISTA PARA IMPRESSAO\n(2) RETORNAR AO MENU PRINCIPAL");
+    printf("SELECIONE UMA OPÇÃO:\n(1) ENVIAR LISTA PARA IMPRESSAO\n(2) RETORNAR AO MENU PRINCIPAL\n");
     int acao;
     scanf("%d%*c", &acao);
     if(acao == 1)
         insereDocumentoFila(fila, lista, imprimeNaTelaListaBusca, imprimeEmArquivoListaBusca, desalocaListaBusca);
 }
 
-int main(){
+int main(int argc, char *argv[]){
+    if(argc <=1){
+  	printf("ERRO: O diretorio de arquivos de configuracao nao foi informado");
+  	return 1;
+    } //verificar se recebeu o diretorio
+    char diretorio[1001];
+    sprintf(diretorio, "%s/saida", argv[1]); //transormar o diretorio em uma string    
+
     char diretorioBinario[100];
     printf("DIGITE O CAMINHO DO BANCO DE DADOS:");
     scanf("%s%*c", diretorioBinario);
@@ -83,39 +90,49 @@ int main(){
     }
 
     int acao;
-    char teste;
     while(1){
         if(retornaCargo(usuario) == 'A'){
-            printf("ESCOLHA UMA OPCAO:\n(1) CADASTRAR SECRETARIO\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
+            printf("\nESCOLHA UMA OPCAO:\n(1) CADASTRAR SECRETARIO\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
             printf("(4) REALIZAR CONSULTA\n(5) BUSCAR PACIENTES\n(6) RELATORIO GERAL\n(7) FILA DE IMPRESSAO\n(8)FINALIZAR O PROGRAMA\n");
         }
         if(retornaCargo(usuario) == 'U'){
-            printf("ESCOLHA UMA OPCAO:\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
+            printf("\nESCOLHA UMA OPCAO:\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
             printf("(4) REALIZAR CONSULTA\n(5) BUSCAR PACIENTES\n(6) RELATORIO GERAL\n(7) FILA DE IMPRESSAO\n(8)FINALIZAR O PROGRAMA\n");
         }
         if(retornaCargo(usuario) == 'M'){
-            printf("ESCOLHA UMA OPCAO:\n");
+            printf("\nESCOLHA UMA OPCAO:\n");
             printf("(4) REALIZAR CONSULTA\n(5) BUSCAR PACIENTES\n(6) RELATORIO GERAL\n(7) FILA DE IMPRESSAO\n(8)FINALIZAR O PROGRAMA\n");
         }
         scanf("%d%*c", &acao);
         if(acao == 1 || acao == 2 || acao == 3){
             cadastraPessoa(listaPessoas, acao);
             printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-            scanf("%c", &teste);
-            printf("%c", teste);
+            scanf("%*c");
         }
         if(acao == 4)
             RealizaConsulta(fila, listaPessoas, nomeMedico, CRM);
-        if(acao == 5)
+        if(acao == 5){
             buscaPaciente(fila, listaPessoas);
-        if(acao == 6)
+	    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+            scanf("%*c");
+        }
+        if(acao == 6){
             scanf("%d%*c", &acao);
-        if(acao == 7)
-            imprimeFila(fila, "saida");
+	    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+            scanf("%*c");	
+	}
+        if(acao == 7){
+            imprimeFila(fila, diretorio);
+	    scanf("%d%*c", &acao);
+	    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+            scanf("%*c");
+	    scanf("%d%*c", &acao);
+	}
         
         if(acao == 8)
             break;
     }
 
-
+    desalocaFila(fila);
+    desalocaLista(listaPessoas);
 }

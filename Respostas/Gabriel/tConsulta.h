@@ -13,7 +13,7 @@
 #include "tEncaminhamento.h"
 
 typedef struct {
-
+	tListaLesao *lista;
 }tConsulta;
 
 tPessoa* pacienteCadastrado(char *CPF, tListaPessoas *lista){
@@ -174,6 +174,7 @@ tConsulta* RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeM
         printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
         scanf("%*c");
     }
+
     return NULL;
 }
 

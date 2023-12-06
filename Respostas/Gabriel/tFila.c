@@ -44,7 +44,7 @@ void imprimeFila(tFila *f, char *path){
   for(int i = 0; i < f->qtd; i++){
     if(i > f->jaImpresso)
       imprimeNaTelaDocumento(f->documento[i]);
-    imprimeEmArquivoDocumento(f->documento[i], path);
+      imprimeEmArquivoDocumento(f->documento[i], path);
   }
   f->jaImpresso = f->qtd - 1;
 }

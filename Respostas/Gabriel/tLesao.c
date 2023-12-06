@@ -64,9 +64,9 @@ void desalocaLesao(tLesao *lesao){
 }
 
 void imprimeNaTelaLesao(tLesao *lesao){
-    printf("%s - %s - %s - %dmm\n", lesao->rotulo, lesao->diagnostico, lesao->regiao, lesao->tamanho);
+    printf("%s - %s - %s - %dMM\n", lesao->rotulo, lesao->diagnostico, lesao->regiao, lesao->tamanho);
 }
 
 void imprimeEmArquivoLesao(tLesao *lesao, FILE * arq){
-    fprintf(arq, "%s - %s - %s - %dmm\n", lesao->rotulo, lesao->diagnostico, lesao->regiao, lesao->tamanho);
+    fprintf(arq, "%s - %s - %s - %dMM\n", lesao->rotulo, lesao->diagnostico, lesao->regiao, lesao->tamanho);
 }

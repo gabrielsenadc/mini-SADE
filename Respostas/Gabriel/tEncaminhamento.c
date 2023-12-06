@@ -41,7 +41,7 @@ void imprimeNaTelaEncaminhamento(void *dado){
 
     printf("PACIENTE: %s\n", e->nomePaciente);
     printf("CPF: %s\n\n", e->CPF);
-    printf("ESPECIALIDADE ENCAMINHADA: %s", e->especialidade);
+    printf("ESPECIALIDADE ENCAMINHADA: %s\n", e->especialidade);
     printf("MOTIVO: %s\n\n", e->motivo);
     printf("%s (%s)\n", e->nomeMedico, e->CRM);
     printf("%s\n", e->data);
@@ -56,7 +56,7 @@ void imprimeEmArquivoEncaminhamento(void *dado, char *path){
 
     fprintf(arq, "PACIENTE: %s\n", e->nomePaciente);
     fprintf(arq, "CPF: %s\n\n", e->CPF);
-    fprintf(arq, "ESPECIALIDADE ENCAMINHADA: %s", e->especialidade);
+    fprintf(arq, "ESPECIALIDADE ENCAMINHADA: %s\n", e->especialidade);
     fprintf(arq, "MOTIVO: %s\n\n", e->motivo);
     fprintf(arq, "%s (%s)\n", e->nomeMedico, e->CRM);
     fprintf(arq, "%s\n", e->data);
