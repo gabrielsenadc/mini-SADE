@@ -90,6 +90,7 @@ int main(int argc, char *argv[]){
     }
 
     int acao;
+    tConsulta *c = NULL;
     while(1){
         if(retornaCargo(usuario) == 'A'){
             printf("\nESCOLHA UMA OPCAO:\n(1) CADASTRAR SECRETARIO\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
@@ -110,7 +111,7 @@ int main(int argc, char *argv[]){
             scanf("%*c");
         }
         if(acao == 4)
-            RealizaConsulta(fila, listaPessoas, nomeMedico, CRM);
+            c = RealizaConsulta(fila, listaPessoas, nomeMedico, CRM);
         if(acao == 5){
             buscaPaciente(fila, listaPessoas);
 	    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
@@ -135,4 +136,8 @@ int main(int argc, char *argv[]){
 
     desalocaFila(fila);
     desalocaLista(listaPessoas);
+    if(c != NULL){
+        desalocaListaLesao(c->lista);
+        free(c);
+    }
 }

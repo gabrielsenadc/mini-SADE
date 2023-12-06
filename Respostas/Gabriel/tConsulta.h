@@ -175,8 +175,10 @@ tConsulta* RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeM
         scanf("%*c");
     }
 
-    return NULL;
-}
+    tConsulta *c = malloc(sizeof(tConsulta));
+    c->lista = listaLesao;
 
+    return c;
+}
 
 #endif
