@@ -4,7 +4,7 @@
 typedef struct {
   char nome[100];
   char CPF[15];
-  char data[11];
+  int dia, mes, ano;
   char telefone[15];
   char genero[10];
 
@@ -29,11 +29,15 @@ void cadastraPessoa(tListaPessoas *lista, int tipo);
 
 int igualNome(char *nome, tPessoa *pessoa);
 
+int igualCPF(char *CPF, tPessoa *pessoa);
+
+void desalocaPessoa(tPessoa *p);
+
+void desalocaLista(tListaPessoas *l);
+
 char* retornaNome(tPessoa *pessoa);
 
 char* retornaCPF(tPessoa *pessoa);
-
-char* retornaData(tPessoa *pessoa);
 
 char* retornaTelefone(tPessoa *pessoa);
 
@@ -48,6 +52,11 @@ char* retornaSenha(tPessoa *pessoa);
 char* retornaCRM(tPessoa *pessoa);
 
 char retornaAcesso(tPessoa *pessoa);
+
+int retornaDia(tPessoa *pessoa);
+int retornaMes(tPessoa *pessoa);
+int retornaAno(tPessoa *pessoa);
+
 
 
 

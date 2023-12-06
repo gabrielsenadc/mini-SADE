@@ -17,7 +17,7 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
   
   char nome[100];
   char CPF[15];
-  char data[11];
+  int dia, ano, mes;
   char telefone[15];
   char genero[10];
   
@@ -30,8 +30,10 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
   strcpy(pessoa->CPF, CPF);
 
   printf("DATA DE NASCIMENTO: ");
-  scanf("%[^\n]%*c", data);
-  strcpy(pessoa->data, data);
+  scanf("%d/%d/%d%*c", &dia, &mes, &ano);
+  pessoa->dia = dia;
+  pessoa->mes = mes;
+  pessoa->ano = ano;
 
   printf("TELEFONE: ");
   scanf("%[^\n]%*c", telefone);
@@ -56,6 +58,8 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
     printf("NIVEL DE ACESSO: ");
     scanf("%[^\n]%*c", acesso);
     pessoa->acesso = acesso[0];
+
+    pessoa->cargo = 'S';
   }
   if(tipo == 2){
     char usuario[20];
@@ -73,13 +77,37 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
     printf("SENHA: ");
     scanf("%[^\n]%*c", senha);
     strcpy(pessoa->senha, senha);
+
+    pessoa->cargo = 'M';
   }
+  if(tipo == 3)
+    pessoa->cargo = 'P';
 
   lista->pessoa[lista->qtd - 1] = pessoa;
 }
 
+void desalocaPessoa(tPessoa *p){
+  if(p != NULL)
+    free(p);
+}
+
+void desalocaLista(tListaPessoas *l){
+  if(l != NULL){
+    for(int i = 0; i < l->qtd; i++){
+      desalocaPessoa(l->pessoa[i]);
+    }
+    if(l->pessoa != NULL)
+      free(l->pessoa);
+    free(l);
+  }
+}
+
 int igualNome(char *nome, tPessoa *pessoa){
   return !(strcmp(nome, pessoa->nome));
+}
+
+int igualCPF(char *CPF, tPessoa *pessoa){
+  return !(strcmp(CPF, pessoa->CPF));
 }
 
 char* retornaNome(tPessoa *pessoa){
@@ -90,11 +118,6 @@ char* retornaNome(tPessoa *pessoa){
 char* retornaCPF(tPessoa *pessoa){
   char *cpf = pessoa->CPF;
   return cpf;
-}
-
-char* retornaData(tPessoa *pessoa){
-  char *data = pessoa->data;
-  return data;
 }
 
 char* retornaTelefone(tPessoa *pessoa){
@@ -128,4 +151,14 @@ char* retornaCRM(tPessoa *pessoa){
 
 char retornaAcesso(tPessoa *pessoa){
   return pessoa->acesso;
+}
+
+int retornaDia(tPessoa *pessoa){
+  return pessoa->dia;
+}
+int retornaMes(tPessoa *pessoa){
+  return pessoa->mes;
+}
+int retornaAno(tPessoa *pessoa){
+  return pessoa->ano;
 }
