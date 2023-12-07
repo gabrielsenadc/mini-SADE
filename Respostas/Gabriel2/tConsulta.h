@@ -129,14 +129,14 @@ void cadastraLesao(tListaLesao *lista){
 void cadastraReceita(tFila *fila, char *nomePaciente, char *nomeMedico, char *CRM, char *dataStr){
     printf("RECEITA MEDICA:\n");
 
-    //eTipoUso tipoUso;
+    eTipoUso tipoUso;
     char uso[7];
     printf("TIPO DE USO: ");
     scanf("%[^\n]%*c", uso);
-    /*if(uso[0] == 'O')
+    if(uso[0] == 'O')
         tipoUso = ORAL;
     if(uso[0] == 'T')
-        tipoUso = TOPICO;*/
+        tipoUso = TOPICO;
     
     char nomeMedicamento[MAX_TAM_NOME_MEDICAMENTO];
     printf("NOME DO MEDICAMENTO: ");
@@ -154,8 +154,11 @@ void cadastraReceita(tFila *fila, char *nomePaciente, char *nomeMedico, char *CR
     printf("INSTRUÇÕES DE USO: ");
     scanf("%[^\n]%*c", instrucoes);
 
-    //tReceita *receita = criaReceita(nomePaciente, tipoUso, nomeMedicamento, tipoMedicamento, instrucoes, qntd, nomeMedico, CRM, dataStr);
-    //insereDocumentoFila(fila, receita, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
+    char nome[100] = "VAINE";
+
+    printf("\n\n\n\n%s\n\n\n\n", nomePaciente);
+    tReceita *receita = criaReceita(nomePaciente, tipoUso, nomeMedicamento, tipoMedicamento, instrucoes, qntd, nomeMedico, CRM, dataStr);
+    insereDocumentoFila(fila, receita, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
 }
 
 void solicitaBiopsia(tFila *fila, tListaLesao *lista, char *nomePaciente, char *CPF, char *nomeMedico, char *CRM, char *data){
@@ -195,12 +198,14 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
     atenderPessoa(pessoa);
     
     char nomePaciente[100];
+    char *nomePaciente2 = retornaNome(pessoa);
     strcpy(nomePaciente, retornaNome(pessoa));
     int dia = retornaDia(pessoa), mes = retornaMes(pessoa), ano = retornaAno(pessoa);
     printf("CPF DO PACIENTE: %s\n", CPF);
     printf("- NOME: %s\n", nomePaciente);
     printf("- DATA DE NASCIMENTO: %02d/%02d/%04d\n", dia, mes, ano);
 
+    
     char data[11], pele[4];
     int diabetes, fumante, alergia, cancer;
     printf("DATA DA CONSULTA: ");
@@ -233,7 +238,7 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
             cadastraLesao(listaLesao);
         }
         if(acao == 2){
-            cadastraReceita(fila, nomePaciente, nomeMedico, CRM, data);
+            cadastraReceita(fila, nomePaciente2, nomeMedico, CRM, data);
         }
         if(acao == 3){
             solicitaBiopsia(fila, listaLesao, nomePaciente, CPF, nomeMedico, CRM, data);
