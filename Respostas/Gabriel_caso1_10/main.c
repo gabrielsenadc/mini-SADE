@@ -143,7 +143,7 @@ int main(int argc, char *argv[]){
 	        printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
             scanf("%*c");
 	        scanf("%d%*c", &acao);
-	}
+	    }
         
         if(acao == 8)
             break;

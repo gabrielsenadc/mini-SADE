@@ -29,8 +29,10 @@ tRelatorio *criaRelatorio(tListaPessoas *listaPessoas, tListaConsulta *listaCons
     }
     int tamanho = retornaTamanhoLesoesConsultas(listaConsulta);
     int lesoes = retornaQtdLesoesConsultas(listaConsulta);
-    tamanho = tamanho / lesoes;
-    idade = idade / pacientes;
+    if(lesoes != 0)
+        tamanho = tamanho / lesoes;
+    if(pacientes != 0)
+        idade = idade / pacientes;
     int paraCirurgia = retornaQtdLesoesParaCirurgiaConsultas(listaConsulta);
     int paraCrioterapia = retornaQtdLesoesParaCrioterapiaConsultas(listaConsulta);
 

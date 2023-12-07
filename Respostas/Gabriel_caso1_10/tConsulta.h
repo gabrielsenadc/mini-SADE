@@ -156,7 +156,6 @@ void cadastraReceita(tFila *fila, char *nomePaciente, char *nomeMedico, char *CR
 
     char nome[100] = "VAINE";
 
-    printf("\n\n\n\n%s\n\n\n\n", nomePaciente);
     tReceita *receita = criaReceita(nomePaciente, tipoUso, nomeMedicamento, tipoMedicamento, instrucoes, qntd, nomeMedico, CRM, dataStr);
     insereDocumentoFila(fila, receita, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
 }
@@ -197,12 +196,10 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
         return;
     atenderPessoa(pessoa);
     
-    char nomePaciente[100];
-    char *nomePaciente2 = retornaNome(pessoa);
-    strcpy(nomePaciente, retornaNome(pessoa));
+    
     int dia = retornaDia(pessoa), mes = retornaMes(pessoa), ano = retornaAno(pessoa);
     printf("CPF DO PACIENTE: %s\n", CPF);
-    printf("- NOME: %s\n", nomePaciente);
+    printf("- NOME: %s\n", retornaNome(pessoa));
     printf("- DATA DE NASCIMENTO: %02d/%02d/%04d\n", dia, mes, ano);
 
     
@@ -228,7 +225,6 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
 
     int acao;
     tListaLesao *listaLesao = criaListaLesao();
-    strcpy(nomePaciente, retornaNome(pessoa));
     while(1){
         printf("ESCOLHA UMA OPCAO:\n(1) CADASTRAR LESAO\n(2) GERAR RECEITA MEDICA\n(3) SOLICITACAO DE BIOPSIA\n(4) ENCAMINHAMENTO\n(5) ENCERRAR CONSULTA\n");
         scanf("%d%*c", &acao);
@@ -238,13 +234,13 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
             cadastraLesao(listaLesao);
         }
         if(acao == 2){
-            cadastraReceita(fila, nomePaciente2, nomeMedico, CRM, data);
+            cadastraReceita(fila, retornaNome(pessoa), nomeMedico, CRM, data);
         }
         if(acao == 3){
-            solicitaBiopsia(fila, listaLesao, nomePaciente, CPF, nomeMedico, CRM, data);
+            solicitaBiopsia(fila, listaLesao, retornaNome(pessoa), CPF, nomeMedico, CRM, data);
         }
         if(acao == 4){
-            encaminhamento(fila, nomePaciente, CPF, nomeMedico, CRM, data);
+            encaminhamento(fila, retornaNome(pessoa), CPF, nomeMedico, CRM, data);
         }
         if(acao == 5){
             break;
