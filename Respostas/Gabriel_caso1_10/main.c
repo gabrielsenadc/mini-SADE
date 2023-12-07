@@ -22,11 +22,11 @@ tPessoa* login(tListaPessoas *lista){
         scanf("%s%*c", senha);
 
         for(int i = 0; i < retornaQtdPesssoas(lista); i++){
-            if(igualUsuario(usuario, lista->pessoa[i])){
-                if(igualSenha(senha, lista->pessoa[i])){
-                    acesso = retornaCargo(lista->pessoa[i]);
+            if(igualUsuario(usuario, retornaPessoaLista(lista, i))){
+                if(igualSenha(senha, retornaPessoaLista(lista, i))){
+                    acesso = retornaCargo(retornaPessoaLista(lista, i));
                     existe = 1;
-                    return lista->pessoa[i];
+                    return retornaPessoaLista(lista, i);
                 }
                 else{
                     printf("SENHA INCORRETA\n");
@@ -138,11 +138,15 @@ int main(int argc, char *argv[]){
           relatorioGeral(fila, listaPessoas, listaConsulta);  	
 	    }
         if(acao == 7){
-            imprimeFila(fila, diretorio);
-	        scanf("%d%*c", &acao);
-	        printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-            scanf("%*c");
-	        scanf("%d%*c", &acao);
+            while(acao != 2){
+                printf("ESCOLHA UMA OPCAO:\n(1) EXECUTAR FILA DE IMPRESSAO\n(2) RETORNAR AO MENU ANTERIOR\n");
+                scanf("%d%*c", &acao);
+                if(acao == 1){
+                    imprimeFila(fila, diretorio);
+                    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                    scanf("%*c");
+                }
+            }
 	    }
         
         if(acao == 8)

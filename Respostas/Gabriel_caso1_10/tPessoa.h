@@ -9,7 +9,7 @@ typedef struct {
   char genero;
 
   char cargo;
-
+  
   char usuario[20];
   char senha[20];
 
@@ -17,6 +17,7 @@ typedef struct {
 
   int atendido;
 
+  int existe;
 } tPessoa;
 
 typedef struct {
@@ -67,5 +68,7 @@ void atenderPessoa(tPessoa *pessoa);
 int retornaAtendido(tPessoa *pessoa);
 
 int calculaIdade(tPessoa *pessoa);
+
+tPessoa* retornaPessoaLista(tListaPessoas* lista, int i);
 
 #endif

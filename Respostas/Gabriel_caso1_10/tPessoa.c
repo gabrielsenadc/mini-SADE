@@ -10,6 +10,16 @@ tListaPessoas *criaListaPessoas(){
   return lista;
 }
 
+int verificaCPF(tListaPessoas *lista){
+  for(int i = 0; i < lista->qtd - 1; i++){
+    if(retornaPessoaLista(lista, i)->existe)
+    if(retornaCargo(lista->pessoa[i]) == retornaCargo(lista->pessoa[lista->qtd - 1])){
+      if(igualCPF(retornaCPF(lista->pessoa[lista->qtd - 1]), lista->pessoa[i]))
+        return 1;
+    }
+  }
+}
+
 void cadastraPessoa(tListaPessoas *lista, int tipo){
   lista->qtd++;
   lista->pessoa = realloc(lista->pessoa, lista->qtd * sizeof(tPessoa*));
@@ -60,7 +70,7 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
     printf("NIVEL DE ACESSO: ");
     scanf("%[^\n]%*c", acesso);
     pessoa->cargo = acesso[0];
-
+      
   }
   if(tipo == 2){
     char usuario[20];
@@ -83,8 +93,18 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
   }
   if(tipo == 3)
     pessoa->cargo = 'P';
-
+  pessoa->existe = 1;
   lista->pessoa[lista->qtd - 1] = pessoa;
+
+  if(verificaCPF(lista)){
+    printf("CPF JA EXISTENTE\n");
+    lista->pessoa[lista->qtd - 1]->existe = 0;
+    /*desalocaPessoa(lista->pessoa[lista->qtd - 1]);
+    lista->pessoa[lista->qtd - 1] = NULL;
+    lista->qtd--;
+    lista->pessoa = realloc(lista->pessoa, lista->qtd * sizeof(tPessoa*));  */
+    return;
+  }
 }
 
 void desalocaPessoa(tPessoa *p){
@@ -185,5 +205,9 @@ int calculaIdade(tPessoa *pessoa){
     ano++;
   }
   return ano;
+}
+
+tPessoa* retornaPessoaLista(tListaPessoas* lista, int i){
+  return lista->pessoa[i];
 }
 

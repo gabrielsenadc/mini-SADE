@@ -35,7 +35,7 @@ void desalocaListaBusca(void *dado){
 void imprimeNaTelaListaBusca(void *dado){
     tListaBusca *lista = (tListaBusca*) dado;
     for(int i = 0; i < lista->qtd; i++){
-        printf("%d - %s (%s)\n", i + 1, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
+        printf("%d - %s (%s)\n", i + 1, retornaNome(retornaPessoaLista(lista, i)), retornaCPF(retornaPessoaLista(lista, i)));
     }
 }
 
@@ -47,7 +47,7 @@ void imprimeEmArquivoListaBusca(void *dado, char *path){
     tListaBusca *lista = (tListaBusca*) dado;
 
     for(int i = 0; i < lista->qtd; i++){
-        fprintf(arq, "%d - %s (%s)\n", i + 1, lista->pessoa[i]->nome, lista->pessoa[i]->CPF);
+        fprintf(arq, "%d - %s (%s)\n", i + 1, retornaNome(retornaPessoaLista(lista, i)), retornaCPF(retornaPessoaLista(lista, i)));
     }
 
     fclose(arq);
