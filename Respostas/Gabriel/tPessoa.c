@@ -267,18 +267,30 @@ void salvaBinarioSecretarios(tListaPessoas *lista, char *path){
   fclose(arq);
 }
 
-
 void recuperaBinarioPessoas(tListaPessoas *lista, FILE *arq){
-  int qtd;
+  int qtd = 0;
   fread(&qtd, sizeof(int), 1, arq);
-  int anterior = lista->qtd;
 
-  lista->qtd += qtd;
+  lista->qtd = qtd;
   lista->pessoa = realloc(lista->pessoa, lista->qtd * sizeof(tPessoa*));
-  for(int i = anterior - 1; i < lista->qtd; i++){
-    tPessoa *pessoa = calloc(1, sizeof(tPessoa));
+  for(int i = 0; i < lista->qtd; i++){
+    tPessoa *pessoa = malloc(sizeof(tPessoa));
     fread(pessoa, sizeof(tPessoa), 1, arq);
     lista->pessoa[i] = pessoa;
+  }
+
+  fclose(arq);
+}
+
+void salvaBinarioPessoas(tListaPessoas *lista, char *path){
+  char diretorio[200];
+  sprintf(diretorio, "%s/pessoas.bin", path);
+  FILE *arq = fopen(diretorio, "wb");
+
+  fwrite(&(lista->qtd), sizeof(int), 1, arq);
+
+  for(int i = 0; i < lista->qtd; i++){
+      fwrite(lista->pessoa[i], sizeof(tPessoa), 1, arq);
   }
 
   fclose(arq);

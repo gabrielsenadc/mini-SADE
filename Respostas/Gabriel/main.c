@@ -45,8 +45,18 @@ tPessoa* login(tListaPessoas *lista){
 
 void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
     char nome[100];
+    int total = 0;
     printf("NOME DO PACIENTE: ");
     scanf("%[^\n]%*c", nome);
+
+    for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
+        if(igualNome(nome, listaPessoas->pessoa[i])){
+           total++;
+        }
+    }
+    if(total == 0)
+        return;
+        
     tListaBusca *lista = criaListaBusca();
     for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
         if(igualNome(nome, listaPessoas->pessoa[i])){
@@ -95,19 +105,23 @@ int main(int argc, char *argv[]){
 
     tListaPessoas *listaPessoas = criaListaPessoas();
     char pathS[220], pathM[215], pathP[215];
-    sprintf(pathS, "%s/secretarios.bin", pathB);
-    sprintf(pathM, "%s/medicos.bin", pathB);
-    sprintf(pathP, "%s/pacientes.bin", pathB);
+    /*sprintf(pathS, "%s/secretarios.bin", pathB);
+    sprintf(pathM, "%s/medicos.bin", pathB);*/
+    sprintf(pathP, "%s/pessoas.bin", pathB);
 
-    FILE *arqS = fopen(pathS, "rb");
-    FILE *arqM = fopen(pathM, "rb");
+    /*FILE *arqS = fopen(pathS, "rb");
+    FILE *arqM = fopen(pathM, "rb");*/
     FILE *arqP = fopen(pathP, "rb");
-    if(arqS == NULL)
+    if(arqP == NULL)
         cadastraPessoa(listaPessoas, 1);
     else{
+
         recuperaBinarioPessoas(listaPessoas, arqP);
-        recuperaBinarioPessoas(listaPessoas, arqM);
-        recuperaBinarioPessoas(listaPessoas, arqS);
+        /*recuperaBinarioPessoas(listaPessoas, arqM);
+        recuperaBinarioPessoas(listaPessoas, arqS);*/
+        /*for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
+            printf("%s\n", retornaNome(retornaPessoaLista(listaPessoas, i)));
+        }*/
     }
     
     tPessoa *usuario = login(listaPessoas);
@@ -171,9 +185,7 @@ int main(int argc, char *argv[]){
             break;
     }
 
-    salvaBinarioMedicos(listaPessoas, pathB);
-    salvaBinarioPacientes(listaPessoas, pathB);
-    salvaBinarioSecretarios(listaPessoas, pathB);
+    salvaBinarioPessoas(listaPessoas, pathB);
     desalocaFila(fila);
     desalocaLista(listaPessoas);
     desalocaListaConsulta(listaConsulta);

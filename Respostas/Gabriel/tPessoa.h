@@ -81,4 +81,6 @@ void salvaBinarioMedicos(tListaPessoas *lista, char *path);
 void salvaBinarioSecretarios(tListaPessoas *lista, char *path);
 
 void recuperaBinarioPessoas(tListaPessoas *lista, FILE *arq);
+
+void salvaBinarioPessoas(tListaPessoas *lista, char *path);
 #endif
