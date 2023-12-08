@@ -22,7 +22,7 @@ int verificaCPF(tListaPessoas *lista, char cargo, char *CPF){
   return 0;
 }
 
-void cadastraPessoa(tListaPessoas *lista, int tipo){
+int cadastraPessoa(tListaPessoas *lista, int tipo){
   char nome[100];
   char CPF[15];
   int dia, ano, mes;
@@ -76,7 +76,7 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
 
   if(verificaCPF(lista, cargo, CPF)){
     printf("CPF JA EXISTENTE\n");
-    return;
+    return 0;
   }
 
   lista->qtd++;
@@ -115,7 +115,9 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
     pessoa->CRM[0] = '\0';
   }
   lista->pessoa[lista->qtd - 1] = pessoa;
-
+  return 1;
+  /*printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+  scanf("%*c");*/
 }
 
 void desalocaPessoa(tPessoa *p){

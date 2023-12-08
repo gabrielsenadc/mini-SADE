@@ -30,7 +30,7 @@ typedef struct {
 
 tListaPessoas *criaListaPessoas();
 
-void cadastraPessoa(tListaPessoas *lista, int tipo);
+int cadastraPessoa(tListaPessoas *lista, int tipo);
 
 int igualNome(char *nome, tPessoa *pessoa);
 

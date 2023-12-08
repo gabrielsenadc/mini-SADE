@@ -161,7 +161,7 @@ void encaminhamento(tFila *fila, char *nomePaciente, char *CPF, char *nomeMedico
     printf("ESPECIALIDADE ENCAMINHADA: ");
     scanf("%[^\n]%*c", especialidade);
 
-    char motivo[50];
+    char motivo[300];
     printf("MOTIVO: ");
     scanf("%[^\n]%*c", motivo);
 
@@ -184,11 +184,13 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
     printf("- NOME: %s\n", retornaNome(pessoa));
     printf("- DATA DE NASCIMENTO: %02d/%02d/%04d\n", dia, mes, ano);
 
-    
+    int d, m, a;
     char data[11], pele[4];
     int diabetes, fumante, alergia, cancer;
     printf("DATA DA CONSULTA: ");
     scanf("%s%*c", data);
+    sscanf(data, "%d/%d/%d", &d, &m, &a);
+    sprintf(data, "%d/%d/%d", d, m, a);
 
     printf("POSSUI DIABETES: ");
     scanf("%d%*c", &diabetes);

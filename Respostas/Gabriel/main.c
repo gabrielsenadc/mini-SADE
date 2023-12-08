@@ -105,23 +105,14 @@ int main(int argc, char *argv[]){
 
     tListaPessoas *listaPessoas = criaListaPessoas();
     char pathS[220], pathM[215], pathP[215];
-    /*sprintf(pathS, "%s/secretarios.bin", pathB);
-    sprintf(pathM, "%s/medicos.bin", pathB);*/
+
     sprintf(pathP, "%s/pessoas.bin", pathB);
 
-    /*FILE *arqS = fopen(pathS, "rb");
-    FILE *arqM = fopen(pathM, "rb");*/
     FILE *arqP = fopen(pathP, "rb");
     if(arqP == NULL)
         cadastraPessoa(listaPessoas, 1);
     else{
-
         recuperaBinarioPessoas(listaPessoas, arqP);
-        /*recuperaBinarioPessoas(listaPessoas, arqM);
-        recuperaBinarioPessoas(listaPessoas, arqS);*/
-        /*for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
-            printf("%s\n", retornaNome(retornaPessoaLista(listaPessoas, i)));
-        }*/
     }
     
     tPessoa *usuario = login(listaPessoas);
@@ -155,9 +146,10 @@ int main(int argc, char *argv[]){
         }
         scanf("%d%*c", &acao);
         if(acao == 1 || acao == 2 || acao == 3){
-            cadastraPessoa(listaPessoas, acao);
-            printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+            if(cadastraPessoa(listaPessoas, acao)){
+            printf("PRESSIONE QUALQUER TECLA PARA RTORNAR AO MENU ANTERIOR\n");
             scanf("%*c");
+            }
         }
         if(acao == 4)
             RealizaConsulta(fila, listaPessoas, nomeMedico, CRM, listaConsulta);
