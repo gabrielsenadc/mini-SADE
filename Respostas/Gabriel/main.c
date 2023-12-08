@@ -178,6 +178,7 @@ int main(int argc, char *argv[]){
     }
 
     salvaBinarioPessoas(listaPessoas, pathB);
+    salvaConsultasBinario(listaConsulta, pathB);
     desalocaFila(fila);
     desalocaLista(listaPessoas);
     desalocaListaConsulta(listaConsulta);

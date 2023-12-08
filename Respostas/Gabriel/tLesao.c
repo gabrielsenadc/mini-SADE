@@ -4,7 +4,7 @@
 #include <string.h>
 
 tLesao* criaLesao(char *rotulo, char *diagnostico, char *regiao, int tamanho, int cirurgia, int crioterapia){
-    tLesao* l = malloc(sizeof(tLesao));
+    tLesao* l = calloc(1, sizeof(tLesao));
 
     strcpy(l->rotulo, rotulo);
     strcpy(l->diagnostico, diagnostico);
@@ -17,7 +17,7 @@ tLesao* criaLesao(char *rotulo, char *diagnostico, char *regiao, int tamanho, in
 }
 
 tListaLesao *criaListaLesao(){
-    tListaLesao *lista = malloc(sizeof(tListaLesao));
+    tListaLesao *lista = calloc(1, sizeof(tListaLesao));
 
     lista->lesao = NULL;
     lista->qtd = 0;
@@ -84,4 +84,12 @@ void imprimeNaTelaLesao(tLesao *lesao){
 
 void imprimeEmArquivoLesao(tLesao *lesao, FILE * arq){
     fprintf(arq, "%s - %s - %s - %dMM\n", lesao->rotulo, lesao->diagnostico, lesao->regiao, lesao->tamanho);
+}
+
+void salvaBinarioLesoes(tListaLesao *lista, FILE * arq){
+
+  for(int i = 0; i < lista->qtd; i++){
+      fwrite(lista->lesao[i], sizeof(tLesao), 1, arq);
+  }
+
 }

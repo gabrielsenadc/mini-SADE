@@ -14,6 +14,7 @@
 
 typedef struct {
 	tListaLesao *lista;
+	int qtd;
 }tConsulta;
 
 typedef struct {
@@ -50,5 +51,7 @@ void solicitaBiopsia(tFila *fila, tListaLesao *lista, char *nomePaciente, char *
 void encaminhamento(tFila *fila, char *nomePaciente, char *CPF, char *nomeMedico, char *CRM, char *data);
 
 void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico, char *CRM, tListaConsulta *listaConsulta);
+
+void salvaConsultasBinario(tListaConsulta *lista, char *path);
 
 #endif

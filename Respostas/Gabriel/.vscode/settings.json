@@ -2,6 +2,7 @@
     "files.associations": {
         "stdio.h": "c",
         "treceita.h": "c",
-        "tconsulta.h": "c"
+        "tconsulta.h": "c",
+        "tencaminhamento.h": "c"
     }
 }

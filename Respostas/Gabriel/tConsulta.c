@@ -4,7 +4,7 @@
 #include <string.h>
 
 tListaConsulta* criaListaConsulta(){
-    tListaConsulta *lista = malloc(sizeof(tListaConsulta));
+    tListaConsulta *lista = calloc(1, sizeof(tListaConsulta));
     lista->consulta = NULL;
     lista->qtd = 0;
     return lista;
@@ -233,8 +233,31 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
         scanf("%*c");
     }
 
-    tConsulta *c = malloc(sizeof(tConsulta));
+    tConsulta *c = calloc(1, sizeof(tConsulta));
     c->lista = listaLesao;
+    c->qtd = c->lista->qtd;
     adicionaListaConsulta(listaConsulta, c);
 
 }
+
+void salvaConsultasBinario(tListaConsulta *lista, char *path){
+  char diretorio[200];
+  sprintf(diretorio, "%s/consultas.bin", path);
+  FILE *arq = fopen(diretorio, "wb");
+  sprintf(diretorio, "%s/lesoes.bin", path);
+  FILE *arqL = fopen(diretorio, "wb");
+
+  fwrite(&(lista->qtd), sizeof(int), 1, arq);
+
+  for(int i = 0; i < lista->qtd; i++){
+      fwrite(lista->consulta[i], sizeof(tConsulta), 1, arq);
+      salvaBinarioLesoes(lista->consulta[i]->lista, arqL);
+  }
+
+  fclose(arqL);
+  fclose(arq);
+}
+
+/*void recuperaConsultasBinario(tListaConsulta *lista, char *path){
+
+}*/

@@ -79,4 +79,6 @@ void imprimeNaTelaLesao(tLesao *lesao);
  */
 void imprimeEmArquivoLesao(tLesao *lesao, FILE * arq);
 
+void salvaBinarioLesoes(tListaLesao *lista, FILE * arq);
+
 #endif
