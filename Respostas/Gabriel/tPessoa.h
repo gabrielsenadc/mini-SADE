@@ -1,5 +1,6 @@
 #ifndef _TPESSOA_H_
 #define _TPESSOA_H_
+#include <stdio.h>
 
 typedef struct {
   char nome[100];
@@ -79,4 +80,5 @@ void salvaBinarioMedicos(tListaPessoas *lista, char *path);
 
 void salvaBinarioSecretarios(tListaPessoas *lista, char *path);
 
+void recuperaBinarioPessoas(tListaPessoas *lista, FILE *arq);
 #endif

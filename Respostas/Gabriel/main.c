@@ -9,6 +9,8 @@
 #include "tConsulta.h"
 #include "tRelatorio.h"
 
+#include <stdio.h>
+
 tPessoa* login(tListaPessoas *lista){
     int existe;
     char acesso = 'E';
@@ -92,8 +94,22 @@ int main(int argc, char *argv[]){
     sprintf(pathB, "%s/%s", argv[1], diretorioBinario);
 
     tListaPessoas *listaPessoas = criaListaPessoas();
-    cadastraPessoa(listaPessoas, 1);
+    char pathS[220], pathM[215], pathP[215];
+    sprintf(pathS, "%s/secretarios.bin", pathB);
+    sprintf(pathM, "%s/medicos.bin", pathB);
+    sprintf(pathP, "%s/pacientes.bin", pathB);
 
+    FILE *arqS = fopen(pathS, "rb");
+    FILE *arqM = fopen(pathM, "rb");
+    FILE *arqP = fopen(pathP, "rb");
+    if(arqS == NULL)
+        cadastraPessoa(listaPessoas, 1);
+    else{
+        recuperaBinarioPessoas(listaPessoas, arqP);
+        recuperaBinarioPessoas(listaPessoas, arqM);
+        recuperaBinarioPessoas(listaPessoas, arqS);
+    }
+    
     tPessoa *usuario = login(listaPessoas);
 
     tFila *fila = criaFila();

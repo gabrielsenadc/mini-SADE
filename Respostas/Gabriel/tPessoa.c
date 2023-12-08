@@ -1,5 +1,4 @@
 #include "tPessoa.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -267,4 +266,23 @@ void salvaBinarioSecretarios(tListaPessoas *lista, char *path){
 
   fclose(arq);
 }
+
+
+void recuperaBinarioPessoas(tListaPessoas *lista, FILE *arq){
+  int qtd;
+  fread(&qtd, sizeof(int), 1, arq);
+  int anterior = lista->qtd;
+
+  lista->qtd += qtd;
+  lista->pessoa = realloc(lista->pessoa, lista->qtd * sizeof(tPessoa*));
+  for(int i = anterior - 1; i < lista->qtd; i++){
+    tPessoa *pessoa = calloc(1, sizeof(tPessoa));
+    fread(pessoa, sizeof(tPessoa), 1, arq);
+    lista->pessoa[i] = pessoa;
+  }
+
+  fclose(arq);
+}
+
+
 
