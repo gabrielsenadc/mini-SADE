@@ -7,14 +7,23 @@ tListaPessoas *criaListaPessoas(){
   tListaPessoas *lista = malloc(sizeof(tListaPessoas));
   lista->pessoa = NULL;
   lista->qtd = 0;
+  lista->pacientes = 0;
+  lista->medicos = 0;
+  lista->secretarios = 0;
   return lista;
 }
 
+int verificaCPF(tListaPessoas *lista, char cargo, char *CPF){
+  for(int i = 0; i < lista->qtd; i++){
+    if(retornaCargo(lista->pessoa[i]) == cargo){
+      if(igualCPF(CPF, lista->pessoa[i]))
+        return 1;
+    }
+  }
+  return 0;
+}
+
 void cadastraPessoa(tListaPessoas *lista, int tipo){
-  lista->qtd++;
-  lista->pessoa = realloc(lista->pessoa, lista->qtd * sizeof(tPessoa*));
-  tPessoa *pessoa = malloc(sizeof(tPessoa));
-  
   char nome[100];
   char CPF[15];
   int dia, ano, mes;
@@ -23,66 +32,91 @@ void cadastraPessoa(tListaPessoas *lista, int tipo){
   
   printf("NOME COMPLETO: ");
   scanf("%[^\n]%*c", nome);
-  strcpy(pessoa->nome, nome);
 
   printf("CPF: ");
   scanf("%[^\n]%*c", CPF);
-  strcpy(pessoa->CPF, CPF);
 
   printf("DATA DE NASCIMENTO: ");
   scanf("%d/%d/%d%*c", &dia, &mes, &ano);
-  pessoa->dia = dia;
-  pessoa->mes = mes;
-  pessoa->ano = ano;
 
   printf("TELEFONE: ");
   scanf("%[^\n]%*c", telefone);
-  strcpy(pessoa->telefone, telefone);
 
   printf("GENERO: ");
   scanf("%[^\n]%*c", genero);
-  strcpy(pessoa->genero, genero);
 
+  char usuario[20];
+  char senha[20];
+  char acesso[6];
+  char CRM[12];
+  char cargo;
   if(tipo == 1){
-    char usuario[20];
-    char senha[20];
-    char acesso[6];
     printf("NOME DE USUARIO: ");
     scanf("%[^\n]%*c", usuario);
-    strcpy(pessoa->usuario, usuario);
 
     printf("SENHA: ");
     scanf("%[^\n]%*c", senha);
-    strcpy(pessoa->senha, senha);
 
     printf("NIVEL DE ACESSO: ");
     scanf("%[^\n]%*c", acesso);
-    pessoa->cargo = acesso[0];
-
+    cargo = acesso[0];
   }
   if(tipo == 2){
-    char usuario[20];
-    char senha[20];
-    char CRM[12];
-
     printf("CRM: ");
     scanf("%[^\n]%*c", CRM);
-    strcpy(pessoa->CRM, CRM);
 
     printf("NOME DE USUARIO: ");
     scanf("%[^\n]%*c", usuario);
-    strcpy(pessoa->usuario, usuario);
 
     printf("SENHA: ");
     scanf("%[^\n]%*c", senha);
-    strcpy(pessoa->senha, senha);
-
-    pessoa->cargo = 'M';
+    cargo = 'M';
   }
   if(tipo == 3)
-    pessoa->cargo = 'P';
+    cargo = 'P';
 
+  if(verificaCPF(lista, cargo, CPF)){
+    printf("CPF JA EXISTENTE\n");
+    return;
+  }
+
+  lista->qtd++;
+  lista->pessoa = realloc(lista->pessoa, lista->qtd * sizeof(tPessoa*));
+  tPessoa *pessoa = calloc(1, sizeof(tPessoa));
+  
+  
+  strcpy(pessoa->nome, nome);
+  strcpy(pessoa->CPF, CPF);
+  pessoa->dia = dia;
+  pessoa->mes = mes;
+  pessoa->ano = ano;
+  strcpy(pessoa->telefone, telefone);
+  pessoa->genero = genero[0];
+  pessoa->atendido = 0;
+
+  if(tipo == 1){
+    strcpy(pessoa->usuario, usuario);
+    strcpy(pessoa->senha, senha);
+    pessoa->cargo = acesso[0];
+    lista->secretarios++;
+    pessoa->CRM[0] = '\0';
+  }
+  if(tipo == 2){
+    strcpy(pessoa->CRM, CRM);
+    strcpy(pessoa->usuario, usuario);
+    strcpy(pessoa->senha, senha);
+    pessoa->cargo = 'M';
+    lista->medicos++;
+  }
+  if(tipo == 3){
+    pessoa->cargo = 'P';
+    lista->pacientes++;
+    pessoa->senha[0] = '\0';
+    pessoa->usuario[0] = '\0';
+    pessoa->CRM[0] = '\0';
+  }
   lista->pessoa[lista->qtd - 1] = pessoa;
+
 }
 
 void desalocaPessoa(tPessoa *p){
@@ -136,9 +170,8 @@ char* retornaTelefone(tPessoa *pessoa){
   return telefone;
 }
 
-char* retornaGenero(tPessoa *pessoa){
-  char *genero = pessoa->genero;
-  return genero;
+char retornaGenero(tPessoa *pessoa){
+  return pessoa->genero;
 }
 
 char retornaCargo(tPessoa *pessoa){
@@ -169,3 +202,69 @@ int retornaMes(tPessoa *pessoa){
 int retornaAno(tPessoa *pessoa){
   return pessoa->ano;
 }
+
+void atenderPessoa(tPessoa *pessoa){
+  pessoa->atendido++;
+}
+
+int retornaAtendido(tPessoa *pessoa){
+  return pessoa->atendido;
+}
+
+int calculaIdade(tPessoa *pessoa){
+  int ano = 2023 - pessoa->ano;
+  if(pessoa->dia >= 9 && pessoa->mes >= 11){
+    ano++;
+  }
+  return ano;
+}
+
+tPessoa* retornaPessoaLista(tListaPessoas* lista, int i){
+  return lista->pessoa[i];
+}
+
+void salvaBinarioPacientes(tListaPessoas *lista, char *path){
+  char diretorio[200];
+  sprintf(diretorio, "%s/pacientes.bin", path);
+  FILE *arq = fopen(diretorio, "wb");
+
+  fwrite(&(lista->pacientes), sizeof(int), 1, arq);
+
+  for(int i = 0; i < lista->qtd; i++){
+    if(retornaCargo(lista->pessoa[i]) == 'P')
+      fwrite(lista->pessoa[i], sizeof(tPessoa), 1, arq);
+  }
+
+  fclose(arq);
+}
+
+void salvaBinarioMedicos(tListaPessoas *lista, char *path){
+  char diretorio[200];
+  sprintf(diretorio, "%s/medicos.bin", path);
+  FILE *arq = fopen(diretorio, "wb");
+
+  fwrite(&(lista->medicos), sizeof(int), 1, arq);
+
+  for(int i = 0; i < lista->qtd; i++){
+    if(retornaCargo(lista->pessoa[i]) == 'M')
+      fwrite(lista->pessoa[i], sizeof(tPessoa), 1, arq);
+  }
+
+  fclose(arq);
+}
+
+void salvaBinarioSecretarios(tListaPessoas *lista, char *path){
+  char diretorio[200];
+  sprintf(diretorio, "%s/secretarios.bin", path);
+  FILE *arq = fopen(diretorio, "wb");
+
+  fwrite(&(lista->secretarios), sizeof(int), 1, arq);
+
+  for(int i = 0; i < lista->qtd; i++){
+    if(retornaCargo(lista->pessoa[i]) == 'U' || retornaCargo(lista->pessoa[i]) == 'A' )
+      fwrite(lista->pessoa[i], sizeof(tPessoa), 1, arq);
+  }
+
+  fclose(arq);
+}
+

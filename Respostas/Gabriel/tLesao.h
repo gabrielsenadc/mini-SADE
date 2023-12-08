@@ -15,6 +15,7 @@ typedef struct{
   tLesao **lesao;
   int qtd;
   int paraCirurgia;
+  int paraCrioterapia;
 } tListaLesao;
 
 
@@ -38,6 +39,10 @@ void adicionaListaLesao(tListaLesao *lista, tLesao *lesao);
  * funcao que retorna o numero de lesoes para cirurgia
  */
 int obtemNumeroLesoesParaCirurgia(tListaLesao *lista);
+
+int obtemNumeroLesoesParaCrioterapia(tListaLesao *lista);
+
+int obtemTamanhoLesoesLista(tListaLesao *lista);
 
 /**
  * funcao que retorna o numero de lesoes

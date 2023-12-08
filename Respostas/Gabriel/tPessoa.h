@@ -6,20 +6,25 @@ typedef struct {
   char CPF[15];
   int dia, mes, ano;
   char telefone[15];
-  char genero[10];
+  char genero;
 
   char cargo;
-
+  
   char usuario[20];
   char senha[20];
 
   char CRM[12];
+
+  int atendido;
 
 } tPessoa;
 
 typedef struct {
   tPessoa **pessoa;
   int qtd;
+  int pacientes;
+  int medicos;
+  int secretarios;
 } tListaPessoas;
 
 tListaPessoas *criaListaPessoas();
@@ -46,7 +51,7 @@ char* retornaCPF(tPessoa *pessoa);
 
 char* retornaTelefone(tPessoa *pessoa);
 
-char* retornaGenero(tPessoa *pessoa);
+char retornaGenero(tPessoa *pessoa);
 
 char retornaCargo(tPessoa *pessoa);
 
@@ -60,7 +65,18 @@ int retornaDia(tPessoa *pessoa);
 int retornaMes(tPessoa *pessoa);
 int retornaAno(tPessoa *pessoa);
 
+void atenderPessoa(tPessoa *pessoa);
 
+int retornaAtendido(tPessoa *pessoa);
 
+int calculaIdade(tPessoa *pessoa);
+
+tPessoa* retornaPessoaLista(tListaPessoas* lista, int i);
+
+void salvaBinarioPacientes(tListaPessoas *lista, char *path);
+
+void salvaBinarioMedicos(tListaPessoas *lista, char *path);
+
+void salvaBinarioSecretarios(tListaPessoas *lista, char *path);
 
 #endif

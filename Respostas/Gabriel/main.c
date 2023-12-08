@@ -7,6 +7,7 @@
 #include "tPessoa.h"
 #include "tReceita.h"
 #include "tConsulta.h"
+#include "tRelatorio.h"
 
 tPessoa* login(tListaPessoas *lista){
     int existe;
@@ -21,11 +22,11 @@ tPessoa* login(tListaPessoas *lista){
         scanf("%s%*c", senha);
 
         for(int i = 0; i < retornaQtdPesssoas(lista); i++){
-            if(igualUsuario(usuario, lista->pessoa[i])){
-                if(igualSenha(senha, lista->pessoa[i])){
-                    acesso = retornaCargo(lista->pessoa[i]);
+            if(igualUsuario(usuario, retornaPessoaLista(lista, i))){
+                if(igualSenha(senha, retornaPessoaLista(lista, i))){
+                    acesso = retornaCargo(retornaPessoaLista(lista, i));
                     existe = 1;
-                    return lista->pessoa[i];
+                    return retornaPessoaLista(lista, i);
                 }
                 else{
                     printf("SENHA INCORRETA\n");
@@ -60,6 +61,22 @@ void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
         insereDocumentoFila(fila, lista, imprimeNaTelaListaBusca, imprimeEmArquivoListaBusca, desalocaListaBusca);
 }
 
+void relatorioGeral(tFila *fila, tListaPessoas *listaPessoas, tListaConsulta *listaConsulta){
+    tRelatorio *r = criaRelatorio(listaPessoas, listaConsulta);
+    
+    imprimeNaTela2Relatorio(r);
+
+    printf("SELECIONE UMA OPÇÃO:\n(1) ENVIAR PARA IMPRESSAO\n(2) RETORNAR AO MENU PRINCIPAL\n");
+    int acao;
+    scanf("%d%*c", &acao);
+    if(acao == 1){
+        insereDocumentoFila(fila, r, imprimeNaTelaRelatorio, imprimeEmArquivoRelatorio, desalocaRelatorio);
+        printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+        scanf("%*c");
+    }
+
+}
+
 int main(int argc, char *argv[]){
     if(argc <=1){
   	printf("ERRO: O diretorio de arquivos de configuracao nao foi informado");
@@ -68,9 +85,11 @@ int main(int argc, char *argv[]){
     char diretorio[1001];
     sprintf(diretorio, "%s/saida", argv[1]); //transormar o diretorio em uma string    
 
-    char diretorioBinario[100];
+    char diretorioBinario[100], pathB[200];
     printf("DIGITE O CAMINHO DO BANCO DE DADOS:");
     scanf("%s%*c", diretorioBinario);
+
+    sprintf(pathB, "%s/%s", argv[1], diretorioBinario);
 
     tListaPessoas *listaPessoas = criaListaPessoas();
     cadastraPessoa(listaPessoas, 1);
@@ -90,7 +109,7 @@ int main(int argc, char *argv[]){
     }
 
     int acao;
-    tConsulta *c = NULL;
+    tListaConsulta *listaConsulta = criaListaConsulta();
     while(1){
         if(retornaCargo(usuario) == 'A'){
             printf("\nESCOLHA UMA OPCAO:\n(1) CADASTRAR SECRETARIO\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
@@ -111,33 +130,35 @@ int main(int argc, char *argv[]){
             scanf("%*c");
         }
         if(acao == 4)
-            c = RealizaConsulta(fila, listaPessoas, nomeMedico, CRM);
+            RealizaConsulta(fila, listaPessoas, nomeMedico, CRM, listaConsulta);
         if(acao == 5){
             buscaPaciente(fila, listaPessoas);
-	    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+	        printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
             scanf("%*c");
         }
         if(acao == 6){
-            scanf("%d%*c", &acao);
-	    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-            scanf("%*c");	
-	}
+          relatorioGeral(fila, listaPessoas, listaConsulta);  	
+	    }
         if(acao == 7){
-            imprimeFila(fila, diretorio);
-	    scanf("%d%*c", &acao);
-	    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-            scanf("%*c");
-	    scanf("%d%*c", &acao);
-	}
+            while(acao != 2){
+                printf("ESCOLHA UMA OPCAO:\n(1) EXECUTAR FILA DE IMPRESSAO\n(2) RETORNAR AO MENU ANTERIOR\n");
+                scanf("%d%*c", &acao);
+                if(acao == 1){
+                    imprimeFila(fila, diretorio);
+                    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                    scanf("%*c");
+                }
+            }
+	    }
         
         if(acao == 8)
             break;
     }
 
+    salvaBinarioMedicos(listaPessoas, pathB);
+    salvaBinarioPacientes(listaPessoas, pathB);
+    salvaBinarioSecretarios(listaPessoas, pathB);
     desalocaFila(fila);
     desalocaLista(listaPessoas);
-    if(c != NULL){
-        desalocaListaLesao(c->lista);
-        free(c);
-    }
+    desalocaListaConsulta(listaConsulta);
 }

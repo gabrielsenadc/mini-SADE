@@ -22,6 +22,7 @@ tListaLesao *criaListaLesao(){
     lista->lesao = NULL;
     lista->qtd = 0;
     lista->paraCirurgia = 0;
+    lista->paraCrioterapia = 0;
 
     return lista;
 }
@@ -31,11 +32,17 @@ void adicionaListaLesao(tListaLesao *lista, tLesao *lesao){
     lista->lesao = realloc(lista->lesao, lista->qtd * sizeof(tLesao*));
     if(obtemSeLesaoParaCirurgia(lesao))
         lista->paraCirurgia++;
+    if(lesao->crioterapia)
+        lista->paraCrioterapia++;
     lista->lesao[lista->qtd - 1] = lesao;
 }
 
 int obtemNumeroLesoesParaCirurgia(tListaLesao *lista){
     return lista->paraCirurgia;
+}
+
+int obtemNumeroLesoesParaCrioterapia(tListaLesao *lista){
+    return lista->paraCrioterapia;
 }
 
 int obtemNumeroLesoes(tListaLesao *lista){
@@ -44,6 +51,14 @@ int obtemNumeroLesoes(tListaLesao *lista){
 
 int obtemSeLesaoParaCirurgia(tLesao *lesao){
     return lesao->cirurgia;
+}
+
+int obtemTamanhoLesoesLista(tListaLesao *lista){
+    int tamanho = 0;
+    for(int i = 0; i < lista->qtd; i++){
+        tamanho += lista->lesao[i]->tamanho;
+    }
+    return tamanho;
 }
 
 void desalocaListaLesao(tListaLesao *lista){
