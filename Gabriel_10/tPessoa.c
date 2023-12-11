@@ -2,6 +2,32 @@
 #include <stdlib.h>
 #include <string.h>
 
+struct tPessoa{
+  char nome[100];
+  char CPF[15];
+  int dia, mes, ano;
+  char telefone[15];
+  char genero;
+
+  char cargo;
+  
+  char usuario[20];
+  char senha[20];
+
+  char CRM[12];
+
+  int atendido;
+
+};
+
+struct tListaPessoas{
+  tPessoa **pessoa;
+  int qtd;
+  int pacientes;
+  int medicos;
+  int secretarios;
+};
+
 tListaPessoas *criaListaPessoas(){
   tListaPessoas *lista = malloc(sizeof(tListaPessoas));
   lista->pessoa = NULL;
@@ -116,8 +142,6 @@ int cadastraPessoa(tListaPessoas *lista, int tipo){
   }
   lista->pessoa[lista->qtd - 1] = pessoa;
   return 1;
-  /*printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-  scanf("%*c");*/
 }
 
 void desalocaPessoa(tPessoa *p){
@@ -125,7 +149,7 @@ void desalocaPessoa(tPessoa *p){
     free(p);
 }
 
-void desalocaLista(tListaPessoas *l){
+void desalocaListaPessoas(tListaPessoas *l){
   if(l != NULL){
     for(int i = 0; i < l->qtd; i++){
       desalocaPessoa(l->pessoa[i]);
@@ -222,51 +246,6 @@ int calculaIdade(tPessoa *pessoa){
 
 tPessoa* retornaPessoaLista(tListaPessoas* lista, int i){
   return lista->pessoa[i];
-}
-
-void salvaBinarioPacientes(tListaPessoas *lista, char *path){
-  char diretorio[200];
-  sprintf(diretorio, "%s/pacientes.bin", path);
-  FILE *arq = fopen(diretorio, "wb");
-
-  fwrite(&(lista->pacientes), sizeof(int), 1, arq);
-
-  for(int i = 0; i < lista->qtd; i++){
-    if(retornaCargo(lista->pessoa[i]) == 'P')
-      fwrite(lista->pessoa[i], sizeof(tPessoa), 1, arq);
-  }
-
-  fclose(arq);
-}
-
-void salvaBinarioMedicos(tListaPessoas *lista, char *path){
-  char diretorio[200];
-  sprintf(diretorio, "%s/medicos.bin", path);
-  FILE *arq = fopen(diretorio, "wb");
-
-  fwrite(&(lista->medicos), sizeof(int), 1, arq);
-
-  for(int i = 0; i < lista->qtd; i++){
-    if(retornaCargo(lista->pessoa[i]) == 'M')
-      fwrite(lista->pessoa[i], sizeof(tPessoa), 1, arq);
-  }
-
-  fclose(arq);
-}
-
-void salvaBinarioSecretarios(tListaPessoas *lista, char *path){
-  char diretorio[200];
-  sprintf(diretorio, "%s/secretarios.bin", path);
-  FILE *arq = fopen(diretorio, "wb");
-
-  fwrite(&(lista->secretarios), sizeof(int), 1, arq);
-
-  for(int i = 0; i < lista->qtd; i++){
-    if(retornaCargo(lista->pessoa[i]) == 'U' || retornaCargo(lista->pessoa[i]) == 'A' )
-      fwrite(lista->pessoa[i], sizeof(tPessoa), 1, arq);
-  }
-
-  fclose(arq);
 }
 
 void recuperaBinarioPessoas(tListaPessoas *lista, FILE *arq){

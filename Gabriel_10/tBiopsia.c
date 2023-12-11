@@ -38,8 +38,8 @@ void imprimeNaTelaBiopsia(void *dado){
   printf("CPF: %s\n\n", b->CPF);
   printf("SOLICITACAO DE BIOPSIA PARA AS LESOES:\n");
   for(int i = 0; i < obtemNumeroLesoes(b->lista); i++){
-    if(obtemSeLesaoParaCirurgia(b->lista->lesao[i]))
-      imprimeNaTelaLesao(b->lista->lesao[i]);
+    if(obtemSeLesaoParaCirurgia(retornaLesaoLista(b->lista, i)))
+      imprimeNaTelaLesao(retornaLesaoLista(b->lista, i));
   }
   printf("\n%s (%s)\n", b->nomeMedico, b->CRM);
   printf("%s\n", b->data);
@@ -56,8 +56,8 @@ void imprimeEmArquivoBiopsia(void *dado, char *path){
   fprintf(arq, "CPF: %s\n\n", b->CPF);
   fprintf(arq, "SOLICITACAO DE BIOPSIA PARA AS LESOES:\n");
   for(int i = 0; i < obtemNumeroLesoes(b->lista); i++){
-    if(obtemSeLesaoParaCirurgia(b->lista->lesao[i]))
-      imprimeEmArquivoLesao(b->lista->lesao[i], arq);
+    if(obtemSeLesaoParaCirurgia(retornaLesaoLista(b->lista, i)))
+      imprimeEmArquivoLesao(retornaLesaoLista(b->lista, i), arq);
   }
   fprintf(arq, "\n%s (%s)\n", b->nomeMedico, b->CRM);
   fprintf(arq, "%s\n\n", b->data);

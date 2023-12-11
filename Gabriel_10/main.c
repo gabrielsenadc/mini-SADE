@@ -50,7 +50,7 @@ void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
     scanf("%[^\n]%*c", nome);
 
     for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
-        if(igualNome(nome, listaPessoas->pessoa[i])){
+        if(igualNome(nome, retornaPessoaLista(listaPessoas, i))){
            total++;
         }
     }
@@ -59,8 +59,8 @@ void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
         
     tListaBusca *lista = criaListaBusca();
     for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
-        if(igualNome(nome, listaPessoas->pessoa[i])){
-            adicionaPessoaListaBusca(lista, listaPessoas->pessoa[i]);
+        if(igualNome(nome, retornaPessoaLista(listaPessoas, i))){
+            adicionaPessoaListaBusca(lista, retornaPessoaLista(listaPessoas, i));
         }
     }
     printf("PACIENTES ENCONTRADOS:\n");
@@ -104,7 +104,7 @@ int main(int argc, char *argv[]){
     sprintf(pathB, "%s/%s", argv[1], diretorioBinario);
 
     tListaPessoas *listaPessoas = criaListaPessoas();
-    char pathS[220], pathM[215], pathP[215];
+    char pathP[215];
 
     sprintf(pathP, "%s/pessoas.bin", pathB);
 
@@ -181,6 +181,6 @@ int main(int argc, char *argv[]){
     salvaBinarioPessoas(listaPessoas, pathB);
     salvaConsultasBinario(listaConsulta, pathB);
     desalocaFila(fila);
-    desalocaLista(listaPessoas);
+    desalocaListaPessoas(listaPessoas);
     desalocaListaConsulta(listaConsulta);
 }

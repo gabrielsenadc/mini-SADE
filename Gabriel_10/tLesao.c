@@ -3,6 +3,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+struct tLesao{
+  char rotulo[5];
+  char diagnostico[24];
+  char regiao[15];
+  int tamanho;
+  int cirurgia;
+  int crioterapia;
+};
+
+struct tListaLesao{
+  tLesao **lesao;
+  int qtd;
+  int paraCirurgia;
+  int paraCrioterapia;
+};
+
 tLesao* criaLesao(char *rotulo, char *diagnostico, char *regiao, int tamanho, int cirurgia, int crioterapia){
     tLesao* l = calloc(1, sizeof(tLesao));
 
@@ -104,7 +120,8 @@ void salvaBinarioLesoes(tListaLesao *lista, FILE * arq){
 
 }
 
-void recuperaLesaoBinario(tListaLesao *lista, FILE * arq, int qtd){
+tListaLesao* recuperaLesaoBinario(FILE * arq, int qtd){
+    tListaLesao *lista = malloc(sizeof(tListaLesao));
     lista->qtd = qtd;
     lista->lesao = malloc(qtd * sizeof(tLesao*));
     for(int i = 0; i < qtd; i++){
@@ -112,4 +129,9 @@ void recuperaLesaoBinario(tListaLesao *lista, FILE * arq, int qtd){
         fread(lesao, sizeof(tLesao), 1, arq);
         lista->lesao[i] = lesao;
     }
+    return lista;
+}
+
+tLesao* retornaLesaoLista(tListaLesao *lista, int i){
+    return lista->lesao[i];
 }

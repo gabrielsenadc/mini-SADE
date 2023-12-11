@@ -14,16 +14,16 @@ struct tRelatorio{
 tRelatorio *criaRelatorio(tListaPessoas *listaPessoas, tListaConsulta *listaConsulta){
     int atendidos = 0, idade = 0, pacientes = 0, f = 0, m = 0, o = 0;
     for(int i = 0; i < retornaQtdPesssoas(listaPessoas); i++){
-        if(retornaAtendido(listaPessoas->pessoa[i]))
+        if(retornaAtendido(retornaPessoaLista(listaPessoas, i)))
             atendidos++;
-        if(retornaCargo(listaPessoas->pessoa[i]) == 'P'){
+        if(retornaCargo(retornaPessoaLista(listaPessoas, i)) == 'P'){
             pacientes++;
-            idade += calculaIdade(listaPessoas->pessoa[i]);
-            if(retornaGenero(listaPessoas->pessoa[i]) == 'M')
+            idade += calculaIdade(retornaPessoaLista(listaPessoas, i));
+            if(retornaGenero(retornaPessoaLista(listaPessoas, i)) == 'M')
             m++;
-            if(retornaGenero(listaPessoas->pessoa[i]) == 'F')
+            if(retornaGenero(retornaPessoaLista(listaPessoas, i)) == 'F')
             f++;
-            if(retornaGenero(listaPessoas->pessoa[i]) == 'O')
+            if(retornaGenero(retornaPessoaLista(listaPessoas, i)) == 'O')
             o++;
         }
     }

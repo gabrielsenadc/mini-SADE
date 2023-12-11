@@ -2,22 +2,9 @@
 #define _TLESAO_H_
 #include <stdio.h>
 
-typedef struct{
-  char rotulo[5];
-  char diagnostico[24];
-  char regiao[15];
-  int tamanho;
-  int cirurgia;
-  int crioterapia;
-} tLesao;
+typedef struct tLesao tLesao;
 
-typedef struct{
-  tLesao **lesao;
-  int qtd;
-  int paraCirurgia;
-  int paraCrioterapia;
-} tListaLesao;
-
+typedef struct tListaLesao tListaLesao;
 
 /**
  * Função que recebe todas as informações pertinentes a uma lesao e retorna
@@ -81,6 +68,8 @@ void imprimeEmArquivoLesao(tLesao *lesao, FILE * arq);
 
 void salvaBinarioLesoes(tListaLesao *lista, FILE * arq);
 
-void recuperaLesaoBinario(tListaLesao *lista, FILE * arq, int qtd);
+tListaLesao* recuperaLesaoBinario(FILE * arq, int qtd);
+
+tLesao* retornaLesaoLista(tListaLesao *lista, int i);
 
 #endif

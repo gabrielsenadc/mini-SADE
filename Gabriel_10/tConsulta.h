@@ -12,15 +12,9 @@
 #include "tBiopsia.h"
 #include "tEncaminhamento.h"
 
-typedef struct {
-	tListaLesao *lista;
-	int qtd;
-}tConsulta;
+typedef struct tConsulta tConsulta;
 
-typedef struct {
-	tConsulta **consulta;
-    int qtd;
-}tListaConsulta;
+typedef struct tListaConsulta tListaConsulta;
 
 tListaConsulta* criaListaConsulta();
 

@@ -3,6 +3,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+struct tConsulta{
+	tListaLesao *lista;
+	int qtd;
+};
+
+struct tListaConsulta{
+	tConsulta **consulta;
+    int qtd;
+};
+
+
 tListaConsulta* criaListaConsulta(){
     tListaConsulta *lista = calloc(1, sizeof(tListaConsulta));
     lista->consulta = NULL;
@@ -71,7 +82,7 @@ void desalocaListaConsulta(tListaConsulta *lista){
 }
 
 tPessoa* pacienteCadastrado(char *CPF, tListaPessoas *lista){
-    for(int i = 0; i < lista->qtd; i++){
+    for(int i = 0; i < retornaQtdPesssoas(lista); i++){
         if(igualCPF(CPF, retornaPessoaLista(lista, i)))
             return retornaPessoaLista(lista, i);
     }
@@ -135,8 +146,6 @@ void cadastraReceita(tFila *fila, char *nomePaciente, char *nomeMedico, char *CR
     char instrucoes[MAX_TAM_NOME_MEDICAMENTO];
     printf("INSTRUÇÕES DE USO: ");
     scanf("%[^\n]%*c", instrucoes);
-
-    char nome[100] = "VAINE";
 
     tReceita *receita = criaReceita(nomePaciente, tipoUso, nomeMedicamento, tipoMedicamento, instrucoes, qntd, nomeMedico, CRM, dataStr);
     insereDocumentoFila(fila, receita, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
@@ -235,7 +244,7 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
 
     tConsulta *c = calloc(1, sizeof(tConsulta));
     c->lista = listaLesao;
-    c->qtd = c->lista->qtd;
+    c->qtd = obtemNumeroLesoes(c->lista);
     adicionaListaConsulta(listaConsulta, c);
 
 }
@@ -275,8 +284,8 @@ void recuperaConsultasBinario(tListaConsulta *lista, char *path){
     for(int i = 0; i < lista->qtd; i++){
         tConsulta *c = malloc(sizeof(tConsulta));
         fread(c, sizeof(tConsulta), 1, arq);
-        c->lista = malloc(sizeof(tListaLesao));
-        recuperaLesaoBinario(c->lista, arqL, c->qtd);
+    
+        c->lista = recuperaLesaoBinario(arqL, c->qtd);
 
         lista->consulta[i] = c;
     }
