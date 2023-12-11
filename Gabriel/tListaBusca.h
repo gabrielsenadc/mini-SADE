@@ -16,11 +16,6 @@ tListaBusca *criaListaBusca();
 void adicionaPessoaListaBusca(tListaBusca *lista, tPessoa *pessoa);
 
 /**
- * funcao que desaloca uma pessoa
- */
-void desalocaPessoa(tPessoa *p);
-
-/**
  * Função que recebe o ponteiro genérico (que deve conter uma Lista de Busca) e o desaloca da memória.
  * Essa função primeiro verifica se o ponteiro é NULL antes de desalocar.
  */

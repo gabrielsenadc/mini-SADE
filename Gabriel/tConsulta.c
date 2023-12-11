@@ -4,7 +4,7 @@
 #include <string.h>
 
 struct tConsulta{
-	tListaLesao *lista;
+	tListaLesao *listaLesao;
 	int qtd;
 };
 
@@ -29,7 +29,7 @@ void adicionaListaConsulta(tListaConsulta *lista, tConsulta *consulta){
 
 void desalocaConsulta(tConsulta *c){
     if(c != NULL){
-        desalocaListaLesao(c->lista);
+        desalocaListaLesao(c->listaLesao);
         free(c);
     }
 }
@@ -41,7 +41,7 @@ int retornaQtdConsulta(tListaConsulta *lista){
 int retornaQtdLesoesConsultas(tListaConsulta *lista){
     int lesoes = 0;
     for(int i = 0; i < lista->qtd; i++){
-        lesoes += obtemNumeroLesoes(lista->consulta[i]->lista);
+        lesoes += obtemNumeroLesoes(lista->consulta[i]->listaLesao);
     }
     return lesoes;
 }
@@ -49,7 +49,7 @@ int retornaQtdLesoesConsultas(tListaConsulta *lista){
 int retornaTamanhoLesoesConsultas(tListaConsulta *lista){
     int tamanho = 0;
     for(int i = 0; i < lista->qtd; i++){
-        tamanho += obtemTamanhoLesoesLista(lista->consulta[i]->lista);
+        tamanho += obtemTamanhoLesoesLista(retornaConsultaLista(lista, i)->listaLesao);
     }
     return tamanho;
 }
@@ -57,7 +57,7 @@ int retornaTamanhoLesoesConsultas(tListaConsulta *lista){
 int retornaQtdLesoesParaCirurgiaConsultas(tListaConsulta *lista){
     int qtd = 0;
     for(int i = 0; i < lista->qtd; i++){
-        qtd += obtemNumeroLesoesParaCirurgia(lista->consulta[i]->lista);
+        qtd += obtemNumeroLesoesParaCirurgia(retornaConsultaLista(lista, i)->listaLesao);
     }
     return qtd;
 }
@@ -65,7 +65,7 @@ int retornaQtdLesoesParaCirurgiaConsultas(tListaConsulta *lista){
 int retornaQtdLesoesParaCrioterapiaConsultas(tListaConsulta *lista){
     int qtd = 0;
     for(int i = 0; i < lista->qtd; i++){
-        qtd += obtemNumeroLesoesParaCrioterapia(lista->consulta[i]->lista);
+        qtd += obtemNumeroLesoesParaCrioterapia(retornaConsultaLista(lista, i)->listaLesao);
     }
     return qtd;
 }
@@ -243,8 +243,8 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
     }
 
     tConsulta *c = calloc(1, sizeof(tConsulta));
-    c->lista = listaLesao;
-    c->qtd = obtemNumeroLesoes(c->lista);
+    c->listaLesao = listaLesao;
+    c->qtd = obtemNumeroLesoes(c->listaLesao);
     adicionaListaConsulta(listaConsulta, c);
 
 }
@@ -260,7 +260,7 @@ void salvaConsultasBinario(tListaConsulta *lista, char *path){
 
   for(int i = 0; i < lista->qtd; i++){
       fwrite(lista->consulta[i], sizeof(tConsulta), 1, arq);
-      salvaBinarioLesoes(lista->consulta[i]->lista, arqL);
+      salvaBinarioLesoes(retornaConsultaLista(lista, i)->listaLesao, arqL);
   }
 
   fclose(arqL);
@@ -285,11 +285,15 @@ void recuperaConsultasBinario(tListaConsulta *lista, char *path){
         tConsulta *c = malloc(sizeof(tConsulta));
         fread(c, sizeof(tConsulta), 1, arq);
     
-        c->lista = recuperaLesaoBinario(arqL, c->qtd);
+        c->listaLesao = recuperaLesaoBinario(arqL, c->qtd);
 
         lista->consulta[i] = c;
     }
 
   fclose(arq);
   fclose(arqL);
+}
+
+tConsulta* retornaConsultaLista(tListaConsulta *lista, int i){
+    return lista->consulta[i];
 }

@@ -76,7 +76,7 @@ void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
 void relatorioGeral(tFila *fila, tListaPessoas *listaPessoas, tListaConsulta *listaConsulta){
     tRelatorio *r = criaRelatorio(listaPessoas, listaConsulta);
     
-    imprimeNaTela2Relatorio(r);
+    imprimeNaTelaRelatorio(r);
 
     printf("SELECIONE UMA OPÇÃO:\n(1) ENVIAR PARA IMPRESSAO\n(2) RETORNAR AO MENU PRINCIPAL\n");
     int acao;

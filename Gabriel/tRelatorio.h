@@ -13,6 +13,4 @@ void imprimeNaTelaRelatorio(void *dado);
 
 void imprimeEmArquivoRelatorio(void *dado, char *path);
 
-void imprimeNaTela2Relatorio(tRelatorio *r);
-
 #endif

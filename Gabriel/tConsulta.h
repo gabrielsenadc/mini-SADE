@@ -20,6 +20,8 @@ tListaConsulta* criaListaConsulta();
 
 void adicionaListaConsulta(tListaConsulta *lista, tConsulta *consulta);
 
+void desalocaListaConsulta(tListaConsulta *lista);
+
 void desalocaConsulta(tConsulta *c);
 
 int retornaQtdConsulta(tListaConsulta *lista);
@@ -31,8 +33,6 @@ int retornaTamanhoLesoesConsultas(tListaConsulta *lista);
 int retornaQtdLesoesParaCirurgiaConsultas(tListaConsulta *lista);
 
 int retornaQtdLesoesParaCrioterapiaConsultas(tListaConsulta *lista);
-
-void desalocaListaConsulta(tListaConsulta *lista);
 
 tPessoa* pacienteCadastrado(char *CPF, tListaPessoas *lista);
 
@@ -49,5 +49,7 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
 void salvaConsultasBinario(tListaConsulta *lista, char *path);
 
 void recuperaConsultasBinario(tListaConsulta *lista, char *path);
+
+tConsulta* retornaConsultaLista(tListaConsulta *lista, int i);
 
 #endif

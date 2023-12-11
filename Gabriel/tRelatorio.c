@@ -86,13 +86,3 @@ void imprimeEmArquivoRelatorio(void *dado, char *path){
 
   fclose(arq);
 }
-
-void imprimeNaTela2Relatorio(tRelatorio *r){
-    printf("NUMERO TOTAL DE PACIENTES ATENDIDOS: %d\n", r->atendidos);
-    printf("IDADE MEDIA: %d\n", r->idade);
-    printf("DISTRIBUICAO POR GENERO:\n- FEMININO: %d\n- MASCULINO: %d\n- OUTROS: %d\n", r->f, r->m, r->o);
-    printf("TAMANHO MEDIO DAS LESOES: %d\n", r->tamanho);
-    printf("NUMERO TOTAL DE LESOES: %d\n", r->lesoes);
-    printf("NUMERO TOTAL DE CIRURGIAS: %d\n", r->paraCirurgia);
-    printf("NUMERO TOTAL DE CRIOTERAPIA: %d\n", r->paraCrioterapia);
-}
