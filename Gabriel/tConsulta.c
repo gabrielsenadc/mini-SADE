@@ -6,6 +6,11 @@
 struct tConsulta{
 	tListaLesao *listaLesao;
 	int qtd;
+    char CPFpaciente[15];
+    char CRM[12];
+    char data[11];
+    int diabetes, fumante, alergia, cancer;
+    char pele[4];
 };
 
 struct tListaConsulta{
@@ -243,6 +248,15 @@ void RealizaConsulta(tFila *fila, tListaPessoas *listaPessoas, char *nomeMedico,
     }
 
     tConsulta *c = calloc(1, sizeof(tConsulta));
+
+    c->fumante = fumante;
+    c->alergia = alergia;
+    c->cancer = cancer;
+    c->diabetes = diabetes;
+    strcpy(c->pele, pele);
+    strcpy(c->CRM, CRM);
+    strcpy(c->CPFpaciente, CPF);
+    strcpy(c->data, data);
     c->listaLesao = listaLesao;
     c->qtd = obtemNumeroLesoes(c->listaLesao);
     adicionaListaConsulta(listaConsulta, c);
@@ -284,7 +298,8 @@ void recuperaConsultasBinario(tListaConsulta *lista, char *path){
     for(int i = 0; i < lista->qtd; i++){
         tConsulta *c = malloc(sizeof(tConsulta));
         fread(c, sizeof(tConsulta), 1, arq);
-    
+
+        printf("\n\n\n%s\n\n\n", c->pele);
         c->listaLesao = recuperaLesaoBinario(arqL, c->qtd);
 
         lista->consulta[i] = c;

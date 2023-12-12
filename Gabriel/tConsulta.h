@@ -18,6 +18,7 @@ typedef struct tListaConsulta tListaConsulta;
 
 tListaConsulta* criaListaConsulta();
 
+//adiciona uma consulta na lista
 void adicionaListaConsulta(tListaConsulta *lista, tConsulta *consulta);
 
 void desalocaListaConsulta(tListaConsulta *lista);
@@ -34,8 +35,10 @@ int retornaQtdLesoesParaCirurgiaConsultas(tListaConsulta *lista);
 
 int retornaQtdLesoesParaCrioterapiaConsultas(tListaConsulta *lista);
 
+//retorna o paciente com o CPF passado por parametro, se nao tiver im paciente com esse, CPF retorna NULL
 tPessoa* pacienteCadastrado(char *CPF, tListaPessoas *lista);
 
+//cadastra uma lesao durante a consulta
 void cadastraLesao(tListaLesao *lista);
 
 void cadastraReceita(tFila *fila, char *nomePaciente, char *nomeMedico, char *CRM, char *dataStr);

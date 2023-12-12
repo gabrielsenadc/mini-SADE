@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 
+//realiza o login e retorna a pessoa logada
 tPessoa* login(tListaPessoas *lista){
     int existe;
     char acesso = 'E';
@@ -71,6 +72,9 @@ void buscaPaciente(tFila *fila, tListaPessoas *listaPessoas){
     scanf("%d%*c", &acao);
     if(acao == 1)
         insereDocumentoFila(fila, lista, imprimeNaTelaListaBusca, imprimeEmArquivoListaBusca, desalocaListaBusca);
+    else 
+        desalocaListaBusca(lista);
+    
 }
 
 void relatorioGeral(tFila *fila, tListaPessoas *listaPessoas, tListaConsulta *listaConsulta){
@@ -86,6 +90,8 @@ void relatorioGeral(tFila *fila, tListaPessoas *listaPessoas, tListaConsulta *li
         printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
         scanf("%*c");
     }
+    else
+        desalocaRelatorio(r);
 
 }
 
@@ -94,8 +100,29 @@ int main(int argc, char *argv[]){
   	printf("ERRO: O diretorio de arquivos de configuracao nao foi informado");
   	return 1;
     } //verificar se recebeu o diretorio
-    char diretorio[1001];
+    char diretorio[100];
     sprintf(diretorio, "%s/saida", argv[1]); //transormar o diretorio em uma string    
+
+    char arquivo[121];
+    sprintf(arquivo, "%s/receita.txt", diretorio);
+    FILE *arq = fopen(arquivo, "a");
+    fclose(arq);
+
+    sprintf(arquivo, "%s/lista_busca.txt", diretorio);
+    FILE *arq2 = fopen(arquivo, "a");
+    fclose(arq2);
+
+    sprintf(arquivo, "%s/relatorio_geral.txt", diretorio);
+    FILE *arq3 = fopen(arquivo, "a");
+    fclose(arq3);
+
+    sprintf(arquivo, "%s/encaminhamento.txt", diretorio);
+    FILE *arq4 = fopen(arquivo, "a");
+    fclose(arq4);
+
+    sprintf(arquivo, "%s/biopsia.txt", diretorio);
+    FILE *arq5 = fopen(arquivo, "a");
+    fclose(arq5);
 
     char diretorioBinario[100], pathB[200];
     printf("DIGITE O CAMINHO DO BANCO DE DADOS:");
@@ -132,6 +159,7 @@ int main(int argc, char *argv[]){
     int acao;
     tListaConsulta *listaConsulta = criaListaConsulta();
     recuperaConsultasBinario(listaConsulta, pathB);
+    char cargo = retornaCargo(usuario);
     while(1){
         if(retornaCargo(usuario) == 'A'){
             printf("\nESCOLHA UMA OPCAO:\n(1) CADASTRAR SECRETARIO\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
@@ -139,20 +167,20 @@ int main(int argc, char *argv[]){
         }
         if(retornaCargo(usuario) == 'U'){
             printf("\nESCOLHA UMA OPCAO:\n(2) CADASTRAR MEDICO\n(3) CADASTRAR PACIENTE\n");
-            printf("(4) REALIZAR CONSULTA\n(5) BUSCAR PACIENTES\n(6) RELATORIO GERAL\n(7) FILA DE IMPRESSAO\n(8)FINALIZAR O PROGRAMA\n");
+            printf("(5) BUSCAR PACIENTES\n(6) RELATORIO GERAL\n(7) FILA DE IMPRESSAO\n(8)FINALIZAR O PROGRAMA\n");
         }
         if(retornaCargo(usuario) == 'M'){
             printf("\nESCOLHA UMA OPCAO:\n");
             printf("(4) REALIZAR CONSULTA\n(5) BUSCAR PACIENTES\n(6) RELATORIO GERAL\n(7) FILA DE IMPRESSAO\n(8)FINALIZAR O PROGRAMA\n");
         }
         scanf("%d%*c", &acao);
-        if(acao == 1 || acao == 2 || acao == 3){
+        if((acao == 1 && cargo == 'A') || (acao == 2 && (cargo == 'A' || cargo == 'U')) || (acao == 3 && (cargo == 'A' || cargo == 'U'))){
             if(cadastraPessoa(listaPessoas, acao)){
             printf("PRESSIONE QUALQUER TECLA PARA RTORNAR AO MENU ANTERIOR\n");
             scanf("%*c");
             }
         }
-        if(acao == 4)
+        if(acao == 4 && cargo != 'U')
             RealizaConsulta(fila, listaPessoas, nomeMedico, CRM, listaConsulta);
         if(acao == 5){
             buscaPaciente(fila, listaPessoas);
