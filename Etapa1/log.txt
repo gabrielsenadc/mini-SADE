@@ -1,0 +1,658 @@
+Rodando o script do Aluno - Arquivos header necessários do professor existem na pasta Includes
+ - Arquivos objetos necessários do professor existem na pasta Gabarito-obj.
+#######################################
+ALUNO: GabrielSenaCunha
+#######################################
+CRIANDO O DIRETÓRIO DE RESULTADO PARA GabrielSenaCunha:
+ - Diretório Resultados/GabrielSenaCunha criado com sucesso!
+ - Diretório Resultados/GabrielSenaCunha/tFila criado com sucesso!
+ - Diretório Resultados/GabrielSenaCunha/tDocumento criado com sucesso!
+ - Diretório Resultados/GabrielSenaCunha/tReceita criado com sucesso!
+ - Diretório Resultados/GabrielSenaCunha/completo criado com sucesso!
+ - Diretório Resultados/GabrielSenaCunha/main criado com sucesso!
+ - Arquivos criados: ok!
+
+CHECKANDO OS ARQUIVOS DO ALUNO:
+ - Arquivo esperado 'Respostas/GabrielSenaCunha/tFila.c' encontrado!
+ - Arquivo esperado 'Respostas/GabrielSenaCunha/tFila.h' encontrado!
+ - Arquivo esperado 'Respostas/GabrielSenaCunha/tDocumento.c' encontrado!
+ - Arquivo esperado 'Respostas/GabrielSenaCunha/tDocumento.h' encontrado!
+ - Arquivo esperado 'Respostas/GabrielSenaCunha/tReceita.c' encontrado!
+ - Arquivo esperado 'Respostas/GabrielSenaCunha/tReceita.h' encontrado!
+ - Arquivo esperado 'Respostas/GabrielSenaCunha/main.c' encontrado!
+ - Arquivos esperados enviados: Ok!
+
+COPIANDO OS ARQUIVOS PARA A PASTA DE RESULTADO DO ALUNO:
+ - Pasta tFila:
+ - Copiando os Casos de teste para a pasta Resultados/GabrielSenaCunha/tFila
+ - Copiando os 'Includes/*.h' do professor para a pasta Resultados/GabrielSenaCunha/tFila
+ - Copiando os 'Respostas/GabrielSenaCunha/src_file_name.h' do aluno para a pasta Resultados/GabrielSenaCunha/tFila
+ - Copiando os 'Respostas/GabrielSenaCunha/src_file_name.c' do aluno para a pasta Resultados/GabrielSenaCunha/tFila
+ - Pasta tDocumento:
+ - Copiando os Casos de teste para a pasta Resultados/GabrielSenaCunha/tDocumento
+ - Copiando os 'Includes/*.h' do professor para a pasta Resultados/GabrielSenaCunha/tDocumento
+ - Copiando os 'Respostas/GabrielSenaCunha/src_file_name.h' do aluno para a pasta Resultados/GabrielSenaCunha/tDocumento
+ - Copiando os 'Respostas/GabrielSenaCunha/src_file_name.c' do aluno para a pasta Resultados/GabrielSenaCunha/tDocumento
+ - Pasta tReceita:
+ - Copiando os Casos de teste para a pasta Resultados/GabrielSenaCunha/tReceita
+ - Copiando os 'Includes/*.h' do professor para a pasta Resultados/GabrielSenaCunha/tReceita
+ - Copiando os 'Respostas/GabrielSenaCunha/src_file_name.h' do aluno para a pasta Resultados/GabrielSenaCunha/tReceita
+ - Copiando os 'Respostas/GabrielSenaCunha/src_file_name.c' do aluno para a pasta Resultados/GabrielSenaCunha/tReceita
+ - Pasta completo:
+ - Copiando os Casos de teste para a pasta Resultados/GabrielSenaCunha/completo
+ - Copiando os 'Respostas/GabrielSenaCunha/*.h' do aluno para a pasta Resultados/GabrielSenaCunha/completo
+ - Copiando os 'Respostas/GabrielSenaCunha/*.c' do aluno para a pasta Resultados/GabrielSenaCunha/completo
+ - Pasta main:
+ - Copiando os Casos de teste para a pasta Resultados/GabrielSenaCunha/main
+ - Copiando os 'Includes/*.h' do professor para a pasta Resultados/GabrielSenaCunha/main
+ - Copiando os 'Respostas/GabrielSenaCunha/*.h' do aluno para a pasta Resultados/GabrielSenaCunha/main
+ - Copiando os 'Respostas/GabrielSenaCunha/*.c' do aluno para a pasta Resultados/GabrielSenaCunha/main
+ - Arquivos copiados: ok!
+
+COMPILANDO OS ARQUIVOS NA PASTA DE RESULTADO DO ALUNO:
+ - Copiando os arquivos objetos do professor para cada subpasta do Resultado do GabrielSenaCunha:
+ - Copiando o Gabarito-obj/tFila.o para a pasta Resultados/GabrielSenaCunha/tDocumento
+ - Copiando o Gabarito-obj/tFila.o para a pasta Resultados/GabrielSenaCunha/tReceita
+ - Copiando o Gabarito-obj/tFila.o para a pasta Resultados/GabrielSenaCunha/main
+ - Copiando o Gabarito-obj/tDocumento.o para a pasta Resultados/GabrielSenaCunha/tFila
+ - Copiando o Gabarito-obj/tDocumento.o para a pasta Resultados/GabrielSenaCunha/tReceita
+ - Copiando o Gabarito-obj/tDocumento.o para a pasta Resultados/GabrielSenaCunha/main
+ - Copiando o Gabarito-obj/tReceita.o para a pasta Resultados/GabrielSenaCunha/tFila
+ - Copiando o Gabarito-obj/tReceita.o para a pasta Resultados/GabrielSenaCunha/tDocumento
+ - Copiando o Gabarito-obj/tReceita.o para a pasta Resultados/GabrielSenaCunha/main
+ - Copiando o Gabarito-obj/main.o para a pasta Resultados/GabrielSenaCunha/tFila
+ - Copiando o Gabarito-obj/main.o para a pasta Resultados/GabrielSenaCunha/tDocumento
+ - Copiando o Gabarito-obj/main.o para a pasta Resultados/GabrielSenaCunha/tReceita
+ - Arquivos Compilados: ok!
+
+LINKANDO OS ARQUIVOS COMPILADOS:
+ - Pasta tFila:
+ - Gerando o binário prog linkando com o(s) arquivo(s) tFila/*.o
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/result_linking.txt
+ - Pasta tDocumento:
+ - Gerando o binário prog linkando com o(s) arquivo(s) tDocumento/*.o
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/result_linking.txt
+ - Pasta tReceita:
+ - Gerando o binário prog linkando com o(s) arquivo(s) tReceita/*.o
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/result_linking.txt
+ - Pasta completo:
+ - Gerando o binário prog linkando com o(s) arquivo(s) completo/*.o
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/result_linking.txt
+ - Pasta main:
+ - Gerando o binário prog linkando com o(s) arquivo(s) main/*.o
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/result_linking.txt
+
+EXECUTANDO O VALGRIND EM CADA CASO:
+ - Pasta tFila / Caso 01:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/01/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 79, frees: 79, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tFila / Caso 02:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/02/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 123, frees: 123, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tFila / Caso 03:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/03/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 148, frees: 148, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tFila / Caso 04:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/04/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 161, frees: 161, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tFila / Caso 05:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/05/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 154, frees: 154, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tFila / Caso 06:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/06/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 177, frees: 177, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tFila / Caso 07:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/07/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 109, frees: 109, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tFila / Caso 08:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/08/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 127, frees: 127, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tFila / Caso 09:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/09/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 173, frees: 173, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tFila / Caso 10:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tFila/Casos/10/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 165, frees: 165, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tDocumento / Caso 01:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/01/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 79, frees: 79, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tDocumento / Caso 02:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/02/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 123, frees: 123, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tDocumento / Caso 03:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/03/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 148, frees: 148, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tDocumento / Caso 04:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/04/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 161, frees: 161, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tDocumento / Caso 05:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/05/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 154, frees: 154, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tDocumento / Caso 06:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/06/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 177, frees: 177, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tDocumento / Caso 07:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/07/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 109, frees: 109, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tDocumento / Caso 08:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/08/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 127, frees: 127, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tDocumento / Caso 09:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/09/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 173, frees: 173, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tDocumento / Caso 10:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tDocumento/Casos/10/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 165, frees: 165, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tReceita / Caso 01:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/01/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 78, frees: 78, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tReceita / Caso 02:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/02/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 122, frees: 122, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tReceita / Caso 03:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/03/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 146, frees: 146, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tReceita / Caso 04:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/04/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 159, frees: 159, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tReceita / Caso 05:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/05/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 153, frees: 153, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tReceita / Caso 06:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/06/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 176, frees: 176, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o medicos.txt: Ok! Peso: 0.0
+ - Resultado para o pacientes.txt: Incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Resultado para o secretarios.txt: Ok! Peso: 0.0
+ - Pasta tReceita / Caso 07:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/07/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 107, frees: 107, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tReceita / Caso 08:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/08/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 125, frees: 125, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tReceita / Caso 09:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/09/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 172, frees: 172, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta tReceita / Caso 10:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/tReceita/Casos/10/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 163, frees: 163, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta completo / Caso 01:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/01/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 57, frees: 57, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/01/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/01/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/01/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta completo / Caso 02:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/02/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 78, frees: 78, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/02/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/02/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/02/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta completo / Caso 03:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/03/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 87, frees: 87, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/03/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/03/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/03/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta completo / Caso 04:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/04/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 97, frees: 97, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/04/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/04/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/04/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta completo / Caso 05:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/05/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 86, frees: 86, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/05/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/05/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/05/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta completo / Caso 06:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/06/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 101, frees: 101, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/06/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/06/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/completo/Casos/06/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta completo / Caso 07:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/07/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 77, frees: 77, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta completo / Caso 08:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/08/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 82, frees: 82, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta completo / Caso 09:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/09/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 112, frees: 112, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta completo / Caso 10:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/completo/Casos/10/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 101, frees: 101, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta main / Caso 01:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/01/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 58, frees: 58, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/01/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/01/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/01/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta main / Caso 02:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/02/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 79, frees: 79, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/02/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/02/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/02/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta main / Caso 03:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/03/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 89, frees: 89, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/03/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/03/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/03/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta main / Caso 04:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/04/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 99, frees: 99, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/04/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/04/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/04/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta main / Caso 05:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/05/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 87, frees: 87, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/05/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/05/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/05/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta main / Caso 06:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/06/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 102, frees: 102, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/06/saida/medicos.txt, considerando resultado incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/06/saida/pacientes.txt, considerando resultado incorreto!
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/GabrielSenaCunha/main/Casos/06/saida/secretarios.txt, considerando resultado incorreto!
+ - Pasta main / Caso 07:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/07/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 79, frees: 79, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta main / Caso 08:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/08/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 84, frees: 84, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta main / Caso 09:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/09/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 113, frees: 113, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+ - Pasta main / Caso 10:
+ - Arquivo de output gerado: Resultados/GabrielSenaCunha/main/Casos/10/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 103, frees: 103, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
+ - Resultado para o saida.txt: Incorreto!
+
+#######################################
+RESULTADOS FINAIS
+#######################################
+
+----------------------------------------------------------------------------
+Nome 0: GabrielSenaCunha
+ - Resumo dos Resultados:
+ - Resumo das Compilações: 5 compilações corretas de 5 no total
+ - Resumo das Linkagens: 5 linkagens corretas de 5 no total
+ - Valgrinds Corretos tFila: 10 valgrinds corretos de 10 (não teve desconto na nota)
+ - Valgrinds Corretos tDocumento: 10 valgrinds corretos de 10 (não teve desconto na nota)
+ - Valgrinds Corretos tReceita: 10 valgrinds corretos de 10 (não teve desconto na nota)
+ - Valgrinds Corretos completo: 10 valgrinds corretos de 10 (não teve desconto na nota)
+ - Valgrinds Corretos main: 10 valgrinds corretos de 10 (não teve desconto na nota)
+ - Cômputo final das Notas:
+ - Pasta tFila (peso 1.0): 62 resultados corretos de 60 / Nota 1.00
+ - Pasta tDocumento (peso 1.0): 62 resultados corretos de 60 / Nota 1.00
+ - Pasta tReceita (peso 0.5): 62 resultados corretos de 60 / Nota .50
+ - Pasta completo (peso 0.0): 50 resultados corretos de 60 / Nota 0
+ - Pasta main (peso 7.5): 50 resultados corretos de 60 / Nota 7.50
+ - Nota Final GabrielSenaCunha: 10.00
+
+----------------------------------------------------------------------------
+
+Arquivo CSV Resultado.csv com os resultados finais foi gerado na pasta raíz!
+
+

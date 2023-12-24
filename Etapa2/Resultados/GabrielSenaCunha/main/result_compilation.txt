@@ -1,0 +1,8 @@
+main.c: In function ‘login’:
+main.c:139:1: warning: control reaches end of non-void function [-Wreturn-type]
+  139 | }
+      | ^
+tConsulta.c: In function ‘RealizaConsulta’:
+tConsulta.c:263:9: warning: variable ‘biopsia’ set but not used [-Wunused-but-set-variable]
+  263 |     int biopsia = 0;
+      |         ^~~~~~~
